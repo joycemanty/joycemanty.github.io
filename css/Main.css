@@ -23,5 +23,35 @@ div.Header{
 
 div.bigTitle{
     padding-left: 10px;
+}
 
+div.staffLogin_btn{
+position: fixed;
+right: 0;
+top: 0;
+
+}
+
+div.main_appointment{
+    color: white;
+    background-image: url("../imageResource/appointment.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 70%;
+    padding: 100px 20px;
+    margin-top: 10px;
+}
+
+div.loginForm{
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    Padding: 15px 10px;
+    margin-top: 7px;
+    width: 50%;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 8px;
+    border-color: #9edae0;
 }
