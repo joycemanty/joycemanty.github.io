@@ -56,6 +56,7 @@ div.loginForm{
     border-color: #9edae0;
 }
 
+/* Registeration Form */
 .form {
     position: absolute;
     top: 40%;
@@ -77,6 +78,5 @@ div.loginForm{
     margin: 0 0 15px;
     box-sizing: border-box;
     font-size: 14px;
-    box-shadow: none;
 }
 
