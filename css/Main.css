@@ -58,12 +58,13 @@ div.loginForm{
 
 /* Registeration Form */
 .form {
+    overflow-y: auto;
     position: absolute;
-    top: 40%;
+    top: 32%;
     left: 20%;
     Padding: 15px 10px;
     margin-top: 7px;
-    width: 60%;
+    width: 65%;
     border-style: solid;
     border-width: 3px;
     border-radius: 8px;

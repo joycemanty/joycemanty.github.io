@@ -26,6 +26,9 @@
         
         <div class="form">
             <form class ="register-form">
+                <h3>Registration Form</h3>
+                <br>
+                <h4>Basic Information</h4>
                 <label>First Name</label>
                 <input type="text" class="form-control" placeholder="Your First Name">
                 <label>Last Name</label>
@@ -40,6 +43,101 @@
                 <input type="number" class="form-control" placeholder="Phone Number">
                 <label>Address</label>
                 <input type="text" class="form-control" placeholder="Your Home Address">
+                <h4>Health Details</h4>
+                <label>Do you have any allergies or are you sensitive to drugs or dressings?</label>
+                <div class ="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="radio1" value="yes">
+                <label class="form-check-label" for="radio1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</label>
+                </div>
+                <div class ="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="radio2" value="no">
+                <label class="form-check-label" for="radio2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No</label>
+                </div>
+                <div class="form-group">
+                        <label for="TextArea">Current medications (including over the counter medications, vitamins and minerals):</label>
+                        <textarea class="form-control" id="TextArea" rows="5"></textarea>
+                </div>
+               <label>Have any members of your family had:</label> 
+               <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Asthma" id="Asthma">
+                    <label class="form-check-label" for="Asthma">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asthma</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Cancer" id="Cancer">
+                    <label class="form-check-label" for="Cancer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancer</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Diabetes" id="Diabetes">
+                    <label class="form-check-label" for="Diabetes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diabetes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Mental illness" id="Mental illness">
+                    <label class="form-check-label" for="Mental illness">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mental illness</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Heart disease" id="Heart disease">
+                    <label class="form-check-label" for="Heart disease">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heart disease</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Nil significant history" id="Nil significant history">
+                    <label class="form-check-label" for="Nil significant history">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nil significant history</label>
+                </div>
+                <div class="paragraph">
+                    <h4>Transfer of health information</h4>
+                    <p>                    
+Transfer of health information
+If you have consulted with a doctor at another practice, the health information held by that doctor may assist us with your 
+healthcare needs. If you would like a copy or summary of your health records transferred to this practice please ask reception 
+for information about how this can take place.<br>
+<br>
+<bold>Privacy Notice</bold><br>
+In becoming a patient of the UTS Health Service, we collect your personal and health information to provide for optimal 
+ongoing management of your health, care and wellbeing and to ensure this Practice is able to continue treating you as a 
+patient. If you choose not to disclose information that may be necessary to providing this service to you, the type or 
+quality of care provided will be affected.<br>
+<br>
+Health information will be collected directly from you, or with your consent, from other parties including GPs, 
+specialists, hospitals, dentists, pathology, radiology and allied health providers who may be involved in your care.<br>
+<br>
+All patients have the right to request access to their own personal health information. If you wish to access a 
+copy of your records, please contact the Practice on (02) 9514 1177. The Practice provides limited information 
+about you to Medicare for the purpose of accessing and processing Medicare financial rebates where applicable.<br>
+<br>
+As a patient of this Practice we may need to disclose, with your consent, relevant personal health information 
+in order to provide you with access to the best ongoing health care available both in acute and chronic 
+situations, such as with GPs, specialists, hospitals, dentists, pathology, radiology and allied health 
+providers who may be involved in your care.<br>
+<br>
+This Practice may also be legally required or permitted in certain circumstances to disclose patient information 
+under legislative obligations, including the Infectious Diseases Act - Health (Infectious Diseases) Regulations,
+Adoption Act, where a court order, subpoena, or legal warrant is received, for quality assurance or accreditation 
+purposes.<br>
+<br>
+Please contact the Practice Manager if you have any questions or a complaint regarding privacy and the management 
+of your health information. Further information about privacy generally can be found on the Privacy at UTS website<br>
+<br>
+By signing this form you agree to this Practice and its staff passing on your personal health information on your 
+behalf in order to access ongoing medical care in keeping with privacy legislation and the notice above.<br>
+<br>
+                    </p>
+                </div>
+                <label>I consent:</label>
+                <div class ="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="consent_y" value="yes">
+                <label class="form-check-label" for="consent_y">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</label>
+                </div>
+                <div class ="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="consent_n" value="no">
+                <label class="form-check-label" for="consent_n">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No</label>
+                </div>
+                <label>I have read and I understand all of the above:</label> 
+               <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="yes" id="reg_final_confirm">
+                    <label class="form-check-label" for="Asthma">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</label>
+                </div>
+
+                <!--End of form-->
+                <br>
                 <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>
