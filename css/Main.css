@@ -43,27 +43,6 @@ div.main_appointment{
     margin-top: 10px;
 }
 
-<<<<<<< HEAD
-.form {
-    position: relative;
-    z-index: 1;
-    max-width: 360px;
-    margin: 0 auto 100px;
-    padding: 45px;
-    text-align: center
-}
-
-.form input {
-    outline: 1;
-    width: 100%;
-    background: #f2f2f2;
-    border: 1;
-    margin: 0 0 15px;
-    box-sizing: border-box;
-    font-size: 14px;
-    box-shadow: none;
-}
-=======
 div.loginForm{
     position: absolute;
     top: 40%;
@@ -76,4 +55,27 @@ div.loginForm{
     border-radius: 8px;
     border-color: #9edae0;
 }
->>>>>>> 7c278438b2ed607e6745dfd61519696d673938fe
+
+.form {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    Padding: 15px 10px;
+    margin-top: 7px;
+    width: 60%;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 8px;
+    border-color: #9edae0;
+}
+
+.form input {
+    outline: 1;
+    width: 100%;
+    background: #f2f2f2;
+    border: 1;
+    margin: 0 0 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
