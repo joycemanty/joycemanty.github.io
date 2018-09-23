@@ -11,8 +11,7 @@
 
         <!--Firebase -->
         <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
-        <!--JavaScript -->
-        <script src="../js/registration.js"></script>
+       
 
         <title>UTS Medical Facility Booking System</title>
     </head>
@@ -36,56 +35,56 @@
                 <br>
                 <h4>Basic Information</h4>
                 <label>First Name</label>
-                <input type="text" class="form-control" placeholder="Your First Name">
+                <input id="fName" type="text" class="form-control" placeholder="Your First Name">
                 <label>Last Name</label>
-                <input type="text" class="form-control" placeholder="Your Last Name">
+                <input id="lName" type="text" class="form-control" placeholder="Your Last Name">
                 <label>UTS Student/Staff ID</label>
-                <input type="number" class="form-control" placeholder="Student/Staff ID">
+                <input id="utsId" type="number" class="form-control" placeholder="Student/Staff ID">
                 <label>Password</label>
-                <input type="password" class="form-control" placeholder="Password">
+                <input id="password"type="password" class="form-control" placeholder="Password">
                 <label>Email Address</label>
-                <input type="email" class="form-control" placeholder="Your Email">
+                <input id="email" type="email" class="form-control" placeholder="Your Email">
                 <label>Contact Number</label>
-                <input type="number" class="form-control" placeholder="Phone Number">
+                <input id="cNumber" type="number" class="form-control" placeholder="Phone Number">
                 <label>Address</label>
-                <input type="text" class="form-control" placeholder="Your Home Address">
+                <input id="address" type="text" class="form-control" placeholder="Your Home Address">
                 <h4>Health Details</h4>
                 <label>Do you have any allergies or are you sensitive to drugs or dressings?</label>
                 <div class ="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="radio1" value="yes">
+                <input id="allergies_y" class="checkbox_grp" type="radio" name="allergiesRadios" id="radio1" value="true">
                 <label class="form-check-label" for="radio1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</label>
                 </div>
                 <div class ="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="radio2" value="no">
+                <input class="checkbox_grp" type="radio" name="allergiesRadios" id="radio2" value="false">
                 <label class="form-check-label" for="radio2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No</label>
                 </div>
                 <div class="form-group">
                         <label for="TextArea">Current medications (including over the counter medications, vitamins and minerals):</label>
-                        <textarea class="form-control" id="TextArea" rows="5"></textarea>
+                        <textarea id="current_medication" class="form-control" id="TextArea" rows="5"></textarea>
                 </div>
                <label>Have any members of your family had:</label> 
                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Asthma" id="Asthma">
+                    <input id="asthma_cb"class="checkbox_grp" type="checkbox" value="Asthma" id="Asthma">
                     <label class="form-check-label" for="Asthma">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asthma</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Cancer" id="Cancer">
+                    <input id="cancer_cb"class="checkbox_grp" type="checkbox" value="Cancer" id="Cancer">
                     <label class="form-check-label" for="Cancer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancer</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Diabetes" id="Diabetes">
+                    <input id="diabetes_cb" class="checkbox_grp" type="checkbox" value="Diabetes" id="Diabetes">
                     <label class="form-check-label" for="Diabetes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diabetes</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Mental illness" id="Mental illness">
+                    <input id="mental_cb" class="checkbox_grp" type="checkbox" value="Mental illness" id="Mental illness">
                     <label class="form-check-label" for="Mental illness">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mental illness</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Heart disease" id="Heart disease">
+                    <input id="heart_cb"class="checkbox_grp" type="checkbox" value="Heart disease" id="Heart disease">
                     <label class="form-check-label" for="Heart disease">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heart disease</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Nil significant history" id="Nil significant history">
+                    <input id="nil_cb"class="checkbox_grp" type="checkbox" value="Nil significant history" id="Nil significant history">
                     <label class="form-check-label" for="Nil significant history">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nil significant history</label>
                 </div>
                 <div class="paragraph">
@@ -130,16 +129,16 @@ behalf in order to access ongoing medical care in keeping with privacy legislati
                 </div>
                 <label>I consent:</label>
                 <div class ="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="consent_y" value="yes">
+                <input class="checkbox_grp" type="radio" name="exampleRadios" id="consent_y" value="yes">
                 <label class="form-check-label" for="consent_y">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</label>
                 </div>
                 <div class ="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="consent_n" value="no">
+                <input class="checkbox_grp" type="radio" name="exampleRadios" id="consent_n" value="no">
                 <label class="form-check-label" for="consent_n">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No</label>
                 </div>
                 <label>I have read and I understand all of the above:</label> 
                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="yes" id="reg_final_confirm">
+                    <input class="checkbox_grp" type="checkbox" value="yes" id="reg_final_confirm">
                     <label class="form-check-label" for="Asthma">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</label>
                 </div>
 
@@ -148,6 +147,10 @@ behalf in order to access ongoing medical care in keeping with privacy legislati
                 <button type="submit" onClick="submitClicked()" class="btn btn-primary">Register</button>
             </form>
         </div>
+
+
+    <!--JavaScript -->
+    <script src="../js/registration.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
