@@ -107,3 +107,17 @@ div.costContainer{
     border-color: #00b300;
 
 }
+
+div.staffInfoContainer{
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    Padding: 15px 10px;
+    margin-top: 7px;
+    width: 65%;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 8px;
+    border-color: #00b300;
+
+}
