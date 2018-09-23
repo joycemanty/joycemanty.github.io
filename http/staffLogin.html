@@ -9,6 +9,9 @@
     <link rel="stylesheet" type="text/css" href="../css/Main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    <!--Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+
     <title>UTS Medical Facility Booking System</title>
 </head>
 <body>
@@ -26,22 +29,22 @@
 
 
 <div class="loginForm">
-    <form>
+    <form action="staffHome.html" method="GET">
         <div class="form-group">
-            <label for="exampleInputEmail1">Your Staff ID</label>
-            <input type="email" class="form-control" placeholder="Enter UTS ID">
+            <label>Your Staff ID</label>
+            <input id="utsId" type="number" class="form-control" placeholder="Enter UTS ID">
             
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <label>Password</label>
+            <input id="password" type="password" class="form-control" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button onClick="onLoginClicked()" type="submit" name="submit" id="submit" class="btn btn-primary">Login</button>
 </form>
 
 </div>
 <!--JavaScript -->
-<script src="../js/registration.js"></script>
+<script src="../js/staffLogin.js"></script>
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

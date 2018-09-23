@@ -4,7 +4,10 @@ var login_btn = document.getElementById("pLogin_btn");
 
 function loginClicked(){
     if(loginValidation()){
+        login_btn.value=id.value;
+        window.location("../http/patientHome.html");
         window.alert(id.value+" clicked the button\n"+"password is "+password.value);
+
     }
     else{
         window.alert("wrong input");
@@ -12,6 +15,7 @@ function loginClicked(){
 }
 
 function loginValidation(){
+
     if(id.value.length!=8){
         return false;
     }

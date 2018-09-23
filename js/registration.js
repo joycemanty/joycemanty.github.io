@@ -23,7 +23,7 @@ var ref = database.ref('Users');
  var address = document.getElementById("address");
  var allergies = document.getElementsByName("allergiesRadio");//note
  var current_meditation = document.getElementById("current_medication");
- var family_history; //note
+ var family_history;
 
 
 function getAllergiesValue(allergiesRadios)
@@ -52,7 +52,21 @@ function getFamiliyHistory(){
 }
 
 function submitClicked(){
- 
+  if(formValidation()){
+    saveData();
+    window.location("../http/login.html");
+    //window.alert("Registration Completed! Please Login for booking now!");
+  }
+  else{
+    window.alert("Form's not completed!");
+  }
+}
+
+function formValidation(){
+  return true;
+}
+
+function saveData(){
   //start Saving
   var data = {
     UTS_ID: utsId.value,
@@ -67,6 +81,5 @@ function submitClicked(){
     Familiy_History: getFamiliyHistory(),
   }
 ref.push(data);
+
 }
-
-

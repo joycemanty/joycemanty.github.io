@@ -40,7 +40,7 @@
 </ul>
 
 <div class="loginForm">
-    <form>
+    <form action="patientHome.html" method="GET">
         <div class="form-group">
             <label for="ID">UTS Student/Staff ID</label>
             <input id="id_tf" type="number" class="form-control" placeholder="Enter UTS ID">
@@ -50,9 +50,8 @@
             <label for="exampleInputPassword1">Password</label>
             <input id="password_tf" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
-        <button id="pLogin_btn" onClick="loginClicked()" type="submit" class="btn btn-primary">Login</button>
-</form>
-
+        <button id="pLogin_btn" onClick="loginClicked()" name="submit" type="submit" class="btn btn-primary">Login</button>
+    </form>
 </div>
 <!--JavaScript -->
 <script src="../js/loginAction.js"></script>
