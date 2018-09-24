@@ -40,6 +40,10 @@ top: 0;
 
 }
 
+div.manageAppointmentButton{
+       
+}
+
 div.main_appointment{
     color: white;
     background-image: url("../imageResource/appointment.jpg");
@@ -143,4 +147,33 @@ iframe, object, embed {
     margin-left: auto;
     margin-right:auto;
 
+}
+
+/*Appointment Table*/
+div.appointmentTableContainer{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    right: 30%;
+    Padding: 15px 10px;
+    margin-top: 7px;
+    width: 65%;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 8px;
+    border-color: #00b300;
+}
+
+div.manageAppointmentContainer {
+    position: absolute;
+    top: 30%;
+    left: 75%;
+    right: 5%;
+    Padding: 15px 10px;
+    margin-top: 7px;
+    width: 20%;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 8px;
+    border-color: #00b300;
 }

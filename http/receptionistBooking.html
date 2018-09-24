@@ -9,13 +9,16 @@
     <link rel="stylesheet" type="text/css" href="../css/Main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    <!--Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+
     <title>UTS Medical Facility Booking System</title>
 </head>
 <body>
-<div class="Header">
-    <a href="../http/mainMenu.html"><div class="staffLogin_btn">
-        <button type="button" class="btn btn-secondary btn-sm">Logout</button>    
-    </div></a>
+<div class="staffHeader">
+        <a href="../http/mainMenu.html"><div class="staffLogin_btn">
+                <button type="button" class="btn btn-secondary btn-sm">Logout</button>    
+            </div></a>
     <div id="image">
         <img src="../imageResource/UTS_whiteLogo.png" alt="UTS Logo">
     </div>
@@ -26,22 +29,32 @@
 
 <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" href="../http/patientHome.html">Home</a>
+            
+          <a class="nav-link" href="../http/receptionistHome.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../http/patientAppointments.html">Your Appointments</a>
+          <a class="nav-link active" href="../http/receptionistBooking.html">Book Appointment For Patient</a>
         </li>
+
         
 </ul>
 
-<div class="main_appointment" align="center">
-    <h3 id="idReceived"></h3>
-    <a href="#"><button class="btn btn-info" type="Login">Make Appointments</button></a>
+<!-- Appointment Table Div -->
+<div class="appointmentTableContainer">
+    table here
 </div>
 
-<!--JavaScript -->
-<script src="../js/patientHome.js"></script>
-
+<!-- Manage appointments options Div -->
+<div class="manageAppointmentContainer">
+    <a href="#"><div class="manageAppointmentButton">
+        <button type="button" class="btn btn-secondary btn-sm">Book Appointment</button>
+    </a>
+    <a href="#"><div class="manageAppointmentButton">
+        <button type="button" class="btn btn-secondary btn-sm">Edit Appointment</button>
+    </a>    
+    <button type="button" class="btn btn-secondary btn-sm">Delete Appointment</button>
+    
+</div>
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
