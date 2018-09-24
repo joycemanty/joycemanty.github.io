@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="../css/Main.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!--Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+       
+
+        <title>UTS Medical Facility Booking System</title>
+    </head>
+
+    <body>
+        <div class="Header">
+            <a href="../http/mainMenu.html"><div class="staffLogin_btn">
+                        <button type="button" class="btn btn-secondary btn-sm">Back to Home Page</button>    
+            </div></a>
+            <div id="image">
+                <img src="../imageResource/UTS_whiteLogo.png" alt="UTS Logo">
+            </div>
+            <div class="bigTitle">
+                <h2>UTS Medical Facility Booking System</h2>
+            </div>
+        </div>
+        
+        <div class="form">
+            <form class ="register-form" action="login.html" method="GET">
+                <h3>Create a New User</h3>
+                <br>
+                <label>Staff Type</label>
+                <br>
+                <select name="userType" onchange="getSelectValue();" id="userType">
+                    <option value="0">Choose A Staff Type</option>
+                    <option value="1">Receptionist</option>
+                    <option value="2">Doctor</option>
+                    <option value="3">System Administrator</option>
+                </select>
+                <br><br>
+            </form>
+                <div id="receptionist" style="display: none">
+                    <label>First Name</label>
+                    <input id="s_FName" type="text" class="form-control" placeholder="User's First Name">
+                    <label>Last Name</label>
+                    <input id="s_LName" type="text" class="form-control" placeholder="User's Last Name">
+                    <label>Staff ID</label>
+                    <input id="s_ID" type="number" class="form-control" placeholder="User's new staff ID">
+                    <label>Password</label>
+                    <input id="s_Password" type="password" class="form-control" placeholder="User's new password">
+                    <label>Email Address</label>
+                    <input id="s_Email" type="email" class="form-control" placeholder="User's Email Address">
+                    <label>Contact Number</label>
+                    <input id="s_Phone" type="number" class="form-control" placeholder="User's Phone Number">
+                    <label>Address</label>
+                    <input id="s_Address" type="text" class="form-control" placeholder="User's Home Address">
+                    <button type="submit" onClick="submitClicked()" name="submit" class="btn btn-primary">Register</button>
+
+                </div>
+
+                <div id="doctor" style="display: none">
+                    <label>First Name</label>
+                    <input id="d_FName" type="text" class="form-control" placeholder="Doctor's First Name">
+                    <label>Last Name</label>
+                    <input id="d_LName" type="text" class="form-control" placeholder="Doctor's Last Name">
+                    <label>Doctor ID</label>
+                    <input id="d_ID" type="number" class="form-control" placeholder="Doctor's new staff ID">
+                    <label>Password</label>
+                    <input id="d_Password" type="password" class="form-control" placeholder="Doctor's new password">
+                    <label>Email Address</label>
+                    <input id="d_Email" type="email" class="form-control" placeholder="Doctor's Email Address">
+                    <label>Contact Number</label>
+                    <input id="d_Phone" type="number" class="form-control" placeholder="Doctor's Phone Number">
+                    <label>Doctor type</label>
+                    <input id="d_Type" type="text" class="form-control" placeholder="Doctor's Field of Study">
+                    <button type="submit" onClick="submitClicked()" name="submit" class="btn btn-primary">Register</button>
+
+                </div>
+
+                <div id="sysadmin" style="display: none">
+                    <label>First Name</label>
+                    <input id="a_FName" type="text" class="form-control" placeholder="System Admin's First Name">
+                    <label>Last Name</label>
+                    <input id="a_LName" type="text" class="form-control" placeholder="System Admin's Last Name">
+                    <label>System Admin ID</label>
+                    <input id="a_ID" type="number" class="form-control" placeholder="System Admin's new staff ID">
+                    <label>Password</label>
+                    <input id="a_Password" type="password" class="form-control" placeholder="System Admin's new password">
+                    <button type="submit" onClick="submitClicked()" name="submit" class="btn btn-primary">Register</button>
+
+                </div>
+                <br>
+            </form>
+  
+
+    <!--JavaScript -->
+    <script src="../js/addUser.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+
+</html>
