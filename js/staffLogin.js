@@ -43,16 +43,6 @@ function loginValidation(id,pw){
         }
     }  
     return false; 
-/*
-if(id=="99999999"){
-    if(pw="99999999"){
-    return true;
-    }
-}
-else{
-    return false;
-}
-*/
 
 }
 
