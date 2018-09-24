@@ -101,24 +101,32 @@
                     <tr>
                         <td>Appointment Time</td>
                         <td>
-                            <input type="date" name="AppointmentTime">
+
                         </td>
                     </tr>
 
                     <tr>
                         <td>Appointment Status</td>
                         <td>
-                            <input type="text" name="AppointmentStatus">
+                            <select>
+                                <option value="open">Open</option>
+                                <option value="completed">Completed</option>
+                                <option value="failed">Failed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
                         </td>
                     </tr>
 
                     <td>
                         <input type="submit" value="Reserve">
+                        <a class="main_appointment" href="../http/AppointmentDetials.html"><button class="btn btn-info"
+                                type="Login">Reserve</button></a>
                     </td>
+
                 </table>
             </form>
         </div>
-        </center>
+    </center>
 
 </body>
 
