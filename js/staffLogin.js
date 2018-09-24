@@ -1,5 +1,5 @@
 /*Local variables*/ 
-var staffsDict = [];
+var staffsDict = new Map();
 var button = document.getElementById("submit");
 
 //Setting up firebase
@@ -22,19 +22,12 @@ ref.on('value', function(snapshot) {
 });
 //End of setup
 
-/* Default Staff Account
-var data = {
-    UTS_ID: "99999999",
-    Password: "99999999",
-  }
-ref.push(data);
-*/
 
 function onLoginClicked(){
     var utsId =document.getElementById("utsId").value;
     var password = document.getElementById("password").value;
-    button.value=utsId;
     if(loginValidation(utsId,password)){
+        button.value=utsId;
         window.location("../http/staffHome.html");
     }
     else{
@@ -43,16 +36,14 @@ function onLoginClicked(){
 }
 
 function loginValidation(id,pw){
-/*
-    for(var key in staffsDict){
-        if(id==key){
-            if(staffsDict.key == pw){
-                return true;
-            }
+
+    if(staffsDict.has(id)){
+        if(staffsDict.get(id) == pw){
+            return true;
         }
-    }
-    return false;
-*/
+    }  
+    return false; 
+/*
 if(id=="99999999"){
     if(pw="99999999"){
     return true;
@@ -61,6 +52,7 @@ if(id=="99999999"){
 else{
     return false;
 }
+*/
 
 }
 
@@ -74,9 +66,7 @@ function snapshotToDict(snapshot) {
         var ID = staffs[k].UTS_ID;
         var PW = staffs[k].Password;
 
-        staffsDict.push({
-            key:   ID,
-            value: PW
-        });
+        staffsDict.set(ID,PW);
     }
+    console.log(staffsDict);
 };
