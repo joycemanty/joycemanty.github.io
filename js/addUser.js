@@ -31,7 +31,7 @@ var config = {
   firebase.initializeApp(config);
   console.log(firebase); // testing use
 var database = firebase.database();
-var ref = database.ref('Staff');
+var ref = database.ref('Staffs');
 //End of setup
 
 // Receptionist Values
