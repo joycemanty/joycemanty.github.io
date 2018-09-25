@@ -44,6 +44,12 @@
         <!-- Requesting details from user -->
         <h5>This is your appointment details.</h5>
 
+        <script>
+            function show_alert(){
+                alert("Appointment booking successful!")
+            }
+            </script>
+<form>
         <div class="main_appointment">
             <form>
                 <table>
@@ -105,12 +111,13 @@
                     </tr>
 
                     <td>
-                            <input type="submit" value="Confirm">
+                            <input type="submit" value="Confirm" onclick="show_alert();">
                     </td>
 
                 </table>
             </form>
         </div>
+        </form>
     </center>
 </body>
 
