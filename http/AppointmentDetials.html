@@ -45,79 +45,72 @@
         <h5>This is your appointment details.</h5>
 
         <script>
-            function show_alert(){
-                alert("Appointment booking successful!")
+            function show_alert() {
+                alert("Appointment booking is successful!")
             }
-            </script>
-<form>
+        </script>
+
         <div class="main_appointment">
-            <form>
+            <form action="../http/bookAppointment.html">
                 <table>
                     <tr>
                         <td>First Name</td>
                         <td>
-                            <input type="text" name="FirstNmae">
                         </td>
-
                     </tr>
 
                     <tr>
                         <td>Last Name</td>
                         <td>
-                            <input type="text" name="LastName">
                         </td>
                     </tr>
 
                     <tr>
                         <td>UTS Student/Staff ID</td>
                         <td>
-                            <input type="text" name="UTS ID">
                         </td>
                     </tr>
 
                     <tr>
                         <td>Email Address</td>
                         <td>
-                            <input type="text" name="email">
                         </td>
                     </tr>
 
                     <tr>
                         <td>Appointment Type </td>
                         <td>
-                            
                         </td>
                     </tr>
 
                     <tr>
                         <td>Doctor Type</td>
                         <td>
-                           
                         </td>
                     </tr>
 
                     <tr>
                         <td>Appointment Time</td>
                         <td>
-                            <input type="text" name="time">
                         </td>
                     </tr>
 
                     <tr>
                         <td>Appointment Status</td>
                         <td>
-                           
                         </td>
                     </tr>
-
                     <td>
-                            <input type="submit" value="Confirm" onclick="show_alert();">
+                        <input type="submit" value="Confirm" onclick="show_alert();">
+                    </td>
+                    <td>
+                        <input type="submit" value="back">
                     </td>
 
                 </table>
             </form>
         </div>
-        </form>
+
     </center>
 </body>
 
