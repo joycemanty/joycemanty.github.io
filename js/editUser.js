@@ -1,5 +1,9 @@
 
 //Setting up firebase
+
+
+
+//Setting up firebase
 var config = {
     apiKey: "AIzaSyDFuBAb7gmrOzAzhkkpAxphBszEr5O0l_k",
     authDomain: "sep-2018-f456e.firebaseapp.com",
@@ -8,10 +12,33 @@ var config = {
     storageBucket: "sep-2018-f456e.appspot.com",
     messagingSenderId: "395954175951"
     };
-  firebase.initializeApp(config);
-  console.log(firebase); // testing use
+firebase.initializeApp(config);
+console.log(firebase); // testing use
 var database = firebase.database();
 var ref = database.ref('Staffs');
+ref.on('value', function(snapshot) {
+    console.log(snapshotToDict(snapshot));
+    },function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+});
+//End of setup
+
+function snapshotToDict(snapshot) {
+    var staffs = snapshot.val();
+    var keys = Object.keys(staffs);
+    console.log(keys);
+
+    for(var i = 0; i< keys.length; i++){
+        var k = keys[i];
+        
+        var ID = staffs[k].Staff_ID;
+        var PW = staffs[k].Password;
+
+        staffsDict.set(ID,PW);
+    }
+    console.log(staffsDict);
+};
+
 //End of setup
 
 // Receptionist Values
@@ -38,6 +65,8 @@ var a_LName = document.getElementById("a_LName");
 var a_ID = document.getElementById("a_ID");
 var a_Password = document.getElementById("a_Password");
 
+
+/*
 function submitClicked(){
     if(formValidation()){
       saveData();
@@ -57,11 +86,10 @@ function submitClicked(){
     var data;
     if(getSelectValue() == 1) {
         data = {
-        Staff_Type: "Receptionist",
         Staff_ID: s_ID.value,
         First_Name: s_FName.value,
         Last_Name: s_LName.value,
-        Password: s_Password.value,
+        password: s_Password.value,
         Email: s_Email.value,
         Contact_Number: s_Phone.value,
         Address: s_Address.value,
@@ -71,11 +99,10 @@ function submitClicked(){
 
     if(getSelectValue() == 2) {
         data = {
-        Staff_Type: "Doctor",
         Doctor_ID: d_ID.value,
         First_Name: d_FName.value,
         Last_Name: d_LName.value,
-        Password: d_Password.value,
+        password: d_Password.value,
         Email: d_Email.value,
         Contact_Number: d_Phone.value,
         Doctor_Type: d_Type.value,
@@ -84,11 +111,10 @@ function submitClicked(){
 
     if(getSelectValue() == 3) {
         data = {
-        Staff_Type: "Sysadmin",
         Sysadmin_ID: a_ID.value,
         First_Name: a_FName.value,
         Last_Name: a_LName.value,
-        Password: a_Password.value,
+        password: a_Password.value,
         
         }
     }
@@ -135,5 +161,6 @@ function showDiv(x) {
  
     }
 }
+*/
 
     
