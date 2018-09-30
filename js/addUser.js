@@ -72,7 +72,7 @@ function submitClicked(){
     if(getSelectValue() == 2) {
         data = {
         Staff_Type: "Doctor",
-        Doctor_ID: d_ID.value,
+        Staff_ID: d_ID.value,
         First_Name: d_FName.value,
         Last_Name: d_LName.value,
         Password: d_Password.value,
@@ -85,7 +85,7 @@ function submitClicked(){
     if(getSelectValue() == 3) {
         data = {
         Staff_Type: "Sysadmin",
-        Sysadmin_ID: a_ID.value,
+        Staff_ID: a_ID.value,
         First_Name: a_FName.value,
         Last_Name: a_LName.value,
         Password: a_Password.value,

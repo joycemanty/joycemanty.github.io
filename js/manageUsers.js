@@ -13,6 +13,8 @@ var config = {
 
     var rootRef = firebase.database().ref().child('Staffs');
 
+
+
     rootRef.on("child_added", snap => {
         var id = snap.child("Staff_ID").val();
         var type = snap.child("Staff_Type").val();
@@ -26,3 +28,6 @@ var config = {
 
         $("#table_body").append("<tr><td>" + id + "</td><td>" + type + "</td><td>" + fName + "</td><td>" + lName + "</td><td>" + email + "</td><td>" + contact + "</td><td>" + address + "</td><td>" + doctorType + "</td></tr>");
     });
+
+
+    
