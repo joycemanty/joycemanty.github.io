@@ -19,7 +19,7 @@ var s_FName = document.getElementById("s_FName");
 var s_LName = document.getElementById("s_LName");
 var s_ID = document.getElementById("s_ID");
 var s_Password = document.getElementById("s_Password");
-var s_Email = document.getElementById("s_LName");
+var s_Email = document.getElementById("s_Email");
 var s_Phone = document.getElementById("s_Phone");
 var s_Address = document.getElementById("s_Address");
 
@@ -28,7 +28,7 @@ var d_FName = document.getElementById("d_FName");
 var d_LName = document.getElementById("d_LName");
 var d_ID = document.getElementById("d_ID");
 var d_Password = document.getElementById("d_Password");
-var d_Email = document.getElementById("d_LName");
+var d_Email = document.getElementById("d_Email");
 var d_Phone = document.getElementById("d_Phone");
 var d_Type = document.getElementById("d_Type");
 

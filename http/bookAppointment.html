@@ -52,35 +52,35 @@
                     <tr>
                         <td>First Name</td>
                         <td>
-                            <input type="text" name="FirstNmae">
+                            <input id="fName" type="text" name="FirstNmae">
                         </td>
                     </tr>
 
                     <tr>
                         <td>Last Name</td>
                         <td>
-                            <input type="text" name="LastName">
+                            <input id="lName" type="text" name="LastName">
                         </td>
                     </tr>
 
                     <tr>
                         <td>UTS Student/Staff ID</td>
                         <td>
-                            <input type="text" name="UTS ID">
+                            <input id="id" type="numder" name="UTS ID">
                         </td>
                     </tr>
 
                     <tr>
                         <td>Email Address</td>
                         <td>
-                            <input type="text" name="email">
+                            <input id="email" type="email" name="email">
                         </td>
                     </tr>
 
                     <tr>
                         <td>Appointment Type </td>
                         <td>
-                            <select>
+                            <select change="getSelectValue();" id="appointmentType">
                                 <option value=""></option>
                                 <option value=""></option>
                                 <option value=""></option>
@@ -92,7 +92,7 @@
                     <tr>
                         <td>Doctor Type</td>
                         <td>
-                            <select>
+                            <select change="getSelectValue();" id="doctorType">
                                 <option value=""></option>
                                 <option value=""></option>
                                 <option value=""></option>
