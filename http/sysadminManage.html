@@ -41,21 +41,46 @@
 
 <!-- Appointment Table Div -->
 <div class="appointmentTableContainer">
-    table here
+    <h3>System Users</h3>
+    <div class="table-responsive">          
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Staff Type</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Email</th>
+              <th>Contact No.</th>
+              <th>Address</th>
+              <th>Doctor Type</th>
+            </tr>
+          </thead>
+          <tbody id="table_body">
+            
+          </tbody>
+        </table>
+        </div>
 </div>
 
 <!-- Manage appointments options Div -->
 <div class="manageAppointmentContainer">
-    <a href="#"><div class="manageAppointmentButton">
-        <button type="button" class="btn btn-secondary btn-sm">Add User</button>
+    <a href="../http/addUser.html"><div class="manageAppointmentButton">
+        <button type="button" class="btn btn-secondary btn-sm" >Add User</button>
     </a>
     <a href="#"><div class="manageAppointmentButton">
         <button type="button" class="btn btn-secondary btn-sm">Edit User</button>
-    </a>    
-    <button type="button" class="btn btn-secondary btn-sm">Remove User</button>
-    
+    </a>   
+    <a href="../http/sysadminRemoveUser.html"> 
+        <button type="button" class="btn btn-secondary btn-sm">Remove User</button>
+    </a>
 </div>
+
+<!-- Javascript-->
+<script src="../js/manageUsers.js"></script>
 <!-- Optional JavaScript -->
+
+  
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
