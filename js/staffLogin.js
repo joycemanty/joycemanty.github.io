@@ -59,13 +59,13 @@ function matchStaffType(Id){
     var href;
     switch(type) {
         case "Receptionist":
-            href = "../http/receptionistHome.html";
+            href = "../http/receptionistHome.html?"+"Staff_ID="+Id;
             break;
         case "Doctor":
             href = "#";
             break;
         case "Sysadmin":
-            href = "../http/sysadminHome.html";
+            href = "../http/sysadminHome.html?"+"Staff_ID="+Id;
             break;
         default:
             href = "#";

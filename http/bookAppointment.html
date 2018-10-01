@@ -11,12 +11,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 
+    <!--JQuery for date Picker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+        $( "#datepicker" ).datepicker();
+    } );
+    </script>
+
     <div class="Header">
-        <a href="../http/staffLogin.html">
-            <div class="staffLogin_btn">
-                <button type="button" class="btn btn-secondary btn-sm">Internal Login</button>
-            </div>
-        </a>
+        <a href="../http/mainMenu.html"><div class="staffLogin_btn">
+            <button type="button" class="btn btn-secondary btn-sm">Logout</button>    
+        </div></a>
         <div id="image">
             <img src="../imageResource/UTS_whiteLogo.png" alt="UTS Logo">
         </div>
@@ -29,6 +38,7 @@
 </head>
 
 <body>
+<!-- script for time picker-->
 
 <!-- Navigation bar -->
     <ul class="nav nav-tabs">
@@ -45,94 +55,68 @@
 </ul>
 
     <center>
-        <h4>Book Appointment</h4>
-
-        <!-- Requesting details from user -->
-        <h5>Please enter your details to booking an Appointment</h5>
-
         <div class="main_appointment">
-            <form action="../http/appointmentDetials.html">
-                <table>
-                    <tr>
-                        <td>First Name</td>
-                        <td>
-                            <input id="fName" type="text" name="FirstNmae">
-                        </td>
-                    </tr>
+            <h3>Book Appointment</h3>
+            <h4>Please enter your details to booking an Appointment</h4>
+            <form>
+            <!-- Requesting details from user -->
+            <div class = appointment_form>
+            <div class="form-group">
 
-                    <tr>
-                        <td>Last Name</td>
-                        <td>
-                            <input id="lName" type="text" name="LastName">
-                        </td>
-                    </tr>
+            <div class="form-group row">
+                <label for="numder" class="col-sm-2 col-form-label">UTS_ID</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="datepicker">
+                </div>
+            </div>
+            <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Time</label>
+                    <div class="col-sm-10">
+                        <input type="text"class="timepicker" id="timepicker">
+                    </div>
+            </div>
+            <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Appointment Type</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Counselling</option>
+                            <option>Physical Health</option>
+                         </select>
+                    </div>
+            </div>
+            <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Doctor Prefer</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Any</option>
+                            <option>Dr Beena Chaugule</option>
+                            <option>Dr Albert Ling</option>
+                            <option>Dr Leonie Matthews</option>
+                            <option>Dr Keping Xu</option>
+                         </select>
+                    </div>
+            </div>
 
-                    <tr>
-                        <td>UTS Student/Staff ID</td>
-                        <td>
-                            <input id="id" type="numder" name="UTS ID">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Email Address</td>
-                        <td>
-                            <input id="email" type="email" name="email">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Appointment Type </td>
-                        <td>
-                            <select change="getSelectValue();" id="appointmentType">
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Doctor Type</td>
-                        <td>
-                            <select change="getSelectValue();" id="doctorType">
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                            </select>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Appointment Time</td>
-                        <td>
-
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Appointment Status</td>
-                        <td>
-                            <select>
-                                <option value="open">Open</option>
-                                <option value="completed">Completed</option>
-                                <option value="failed">Failed</option>
-                                <option value="cancelled">Cancelled</option>
-                            </select>
-                        </td>
-                    </tr>
-
-                    <td>
-                
-                        <input type="submit" value="Reserve">
-                    </td>
-
-                </table>
+            <button type="submit" class="btn btn-primary">Make Appointment</button>
             </form>
+            </div>
         </div>
     </center>
+
+<!--JavaScript -->
+<script src="../js/bookAppointment.js"></script>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </body>
 
