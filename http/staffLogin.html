@@ -29,7 +29,7 @@
 
 
 <div class="loginForm">
-    <form id="loginForm" action="staffHome.html" method="GET">
+    <form id="loginForm">
         <div class="form-group">
             <label>Your Staff ID</label>
             <input id="utsId" type="number" class="form-control" placeholder="Enter UTS ID">
@@ -39,7 +39,7 @@
             <label>Password</label>
             <input id="password" type="password" class="form-control" placeholder="Password">
         </div>
-        <button onClick="onLoginClicked()" type="submit" name="submit" id="submit" class="btn btn-primary">Login</button>
+        <button type = "submit" onClick="return onLoginClicked()"  id="submit" class="btn btn-primary">Login</button>
 </form>
 
 </div>

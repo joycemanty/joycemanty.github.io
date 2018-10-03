@@ -28,12 +28,13 @@ function loginClicked(){
     console.log(id.value,password.value);
     if(loginValidation(id.value,password.value)){
         login_btn.value=id.value;
-        window.location("../http/patientHome.html");
+        window.location.href ="../http/patientHome.html?"+"id="+id.value;
 
     }
     else{
         window.alert("wrong input");
     }
+    return false;
 }
 
 function loginValidation(id,pw){

@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 
+     <!--Firebase -->
+     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+       
+
     <div class="Header">
-        <a href="../http/staffLogin.html">
-            <div class="staffLogin_btn">
-                <button type="button" class="btn btn-secondary btn-sm">Internal Login</button>
-            </div>
-        </a>
+        <a href="../http/mainMenu.html"><div class="staffLogin_btn">
+            <button type="button" class="btn btn-secondary btn-sm">Logout</button>    
+        </div></a>
         <div id="image">
             <img src="../imageResource/UTS_whiteLogo.png" alt="UTS Logo">
         </div>
@@ -29,26 +31,82 @@
 </head>
 
 <body>
+<!-- script for time picker-->
 
-    <!-- Navigation bar -->
-    <ul class="nav">
-        <li><a class="nav-link" href="../http/mainMenu.html">Home</a></li>
-        <li><a class="nav-link" href="../http/login.html">Book Appointment</a></li>
-        <li><a class="nav-link" href="../http/AppointmentDetials.html">Appointment Detials</a></li>
-        <li><a class="nav-link" href="../http/cost.html">Cost</a></li>
-        <li><a class="nav-link" href="../http/staffInfo.html">Staff Information</a></li>
-        <li><a class="nav-link" href="../http/contactUs.html">Contact Us</a></li>
-    </ul>
+<!-- Navigation bar -->
+<ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a id="home_nav" class="nav-link" href="../http/patientHome.html">Home</a>
+        </li>
+        <li class="nav-item">
+            <a id ="book_nav" class="nav-link active" href="../http/bookAppointment.html">Make Appointments</a>
+          </li>
+        <li class="nav-item">
+          <a id="view_nav" class="nav-link" href="../http/patientAppointments.html">Your Appointments</a>
+        </li>
+        
+</ul>
 
     <center>
-        <h4>Book Appointment</h4>
-
-        <!-- Requesting details from user -->
-        <h5>Please enter your details to booking an Appointment</h5>
-
+          
+          
         <div class="main_appointment">
-
-            <form action="../http/appointmentDetials.html">
+<<<<<<< HEAD
+<script language="JavaScript">
+        function YYYYMMDDstart()   
+        {   
+                MonHead = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];   
+         
+                
+                var y  = new Date().getFullYear();   
+                for (var i = (y-30); i < (y+30); i++)   
+                        document.reg_testdate.YYYY.options.add(new Option(" "+ i +" ", i));   
+         
+                
+                for (var i = 1; i < 13; i++)   
+                        document.reg_testdate.MM.options.add(new Option(" " + i + " ", i));   
+         
+                document.reg_testdate.YYYY.value = y;   
+                document.reg_testdate.MM.value = new Date().getMonth() + 1;   
+                var n = MonHead[new Date().getMonth()];   
+                if (new Date().getMonth() ==1 && IsPinYear(YYYYvalue)) n++;   
+                     writeDay(n);  
+                document.reg_testdate.DD.value = new Date().getDate();   
+        }   
+        if(document.attachEvent)   
+            window.attachEvent("onload", YYYYMMDDstart);   
+        else   
+            window.addEventListener('load', YYYYMMDDstart, false);   
+        function YYYYDD(str)   
+        {   
+                var MMvalue = document.reg_testdate.MM.options[document.reg_testdate.MM.selectedIndex].value;   
+                if (MMvalue == ""){ var e = document.reg_testdate.DD; optionsClear(e); return;}   
+                var n = MonHead[MMvalue - 1];   
+                if (MMvalue ==2 && IsPinYear(str)) n++;   
+                     writeDay(n)   
+        }   
+        function MMDD(str)     
+        {   
+             var YYYYvalue = document.reg_testdate.YYYY.options[document.reg_testdate.YYYY.selectedIndex].value;   
+             if (YYYYvalue == ""){ var e = document.reg_testdate.DD; optionsClear(e); return;}   
+             var n = MonHead[str - 1];   
+             if (str ==2 && IsPinYear(YYYYvalue)) n++;   
+            writeDay(n)   
+        }   
+        function writeDay(n)   
+        {   
+                var e = document.reg_testdate.DD; optionsClear(e);   
+                for (var i=1; i<(n+1); i++)   
+                     e.options.add(new Option(" "+ i + " ", i));   
+        }   
+        function IsPinYear(year)  
+        {     return(0 == year%4 && (year%100 !=0 || year%400 == 0));}   
+        function optionsClear(e)   
+        {   
+             e.options.length = 1;   
+        }   
+        </script>
+            <form action="../http/appointmentDetials.html" name="reg_testdate">
                 <table>
                     <tr>
                         <td>First Name</td>
@@ -82,10 +140,10 @@
                         <td>Appointment Type </td>
                         <td>
                             <select change="getSelectValue();" id="appointmentType">
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
+                                <option value="Type1">Type1</option>
+                                <option value="Type2">Type2</option>
+                                <option value="Type3">Type3</option>
+                                <option value="Type4">Type4</option>
                             </select>
                         </td>
                     </tr>
@@ -94,10 +152,11 @@
                         <td>Doctor Type</td>
                         <td>
                             <select change="getSelectValue();" id="doctorType">
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
+                                <option value="Any of them">Any of them</option>
+                                <option value="Doctor1">Doctor1</option>
+                                <option value="Doctor2">Doctor2</option>
+                                <option value="Doctor3">Doctor3</option>
+                                <option value="Doctor4">Doctor4</option>
                             </select>
                         </td>
                     </tr>
@@ -106,7 +165,16 @@
                         <td>Appointment Time</td>
                         
                         <td>
-
+                                <select name="YYYY" onchange="YYYYDD(this.value)">
+                                        <option value=""></option>
+                                      </select>
+                                      <select name="MM" onchange="MMDD(this.value)">
+                                        <option value=""></option>
+                                      </select>
+                                      <select name="DD">
+                                        <option value=""></option>
+                                      </select>
+                                
                         </td>
                     </tr>
 
@@ -126,11 +194,80 @@
 
                         <input type="submit" value="Reserve">
                     </td>
+=======
+            <h3>Book Appointment</h3>
+            <h4>Please enter your details to booking an Appointment</h4>
+            <form method="GET">
+            <!-- Requesting details from user -->
+            <div class = appointment_form>
+            <div class="form-group">
+            <div class="form-group row">
+                <label for="text" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                    <input id="f_name" type="text" class="form-control" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="text" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input id="l_name" type="text" class="form-control" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="numder" class="col-sm-2 col-form-label">UTS_ID</label>
+                <div class="col-sm-10">
+                    <input id="Id" type="number" class="form-control" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm-10">
+                    <vaadin-date-picker><input type="date" id="datepicker"></vaadin-date-picker>
+                </div>
+            </div>
+            <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Time</label>
+                    <div class="col-sm-10">
+                        <input type="time""class="timepicker" id="timepicker">
+                    </div>
+            </div>
+            <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Appointment Type</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="a_type">
+                            <option value ="c">Counselling</option>
+                            <option value = "p">Physical Health</option>
+                         </select>
+                    </div>
+            </div>
+            <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Doctor Prefer</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="doctor">
+                            <option value ="Any">Any</option>
+                            <option value ="Dr Beena Chaugule">Dr Beena Chaugule</option>
+                            <option value ="Dr Albert Ling"> Dr Albert Ling</option>
+                            <option value ="Dr Leonie Matthews">Dr Leonie Matthews</option>
+                            <option value ="Dr Keping Xu">Dr Keping Xu</option>
+                         </select>
+                    </div>
+            </div>
+>>>>>>> ae3f65109ea5475a2d4efdfd26fd5229d77efdd3
 
-                </table>
+            <button type="submit" name="submit" onClick="onBookClicked()" class="btn btn-primary">Make Appointment</button>
             </form>
+            </div>
         </div>
     </center>
+
+<!--JavaScript -->
+<script src="../js/bookAppointment.js"></script>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </body>
 

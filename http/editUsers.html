@@ -29,20 +29,34 @@
             </div>
         </div>
         
-        <div class="form">
-            <form class ="register-form" action="login.html" method="GET">
-                <h3>Create a New User</h3>
+        <div id="staffID" class="form">
+            <form class="register-form" action="editUsers.html" method="GET">
+
+                        <h3>Edit Staff Details</h3>                       
+                        <br>
+                        <label>Chosen User's Staff ID</label>
+                        <br>
+                        <input id="staff_ID" type="number" class="form-control" placeholder="Existing Staff ID">
+                        <br>
+            </form>
+            <button type="submit" onClick="readID()" class="btn btn-primary">Next ></button>
+        </div>
+
+        <div class="form" id= "form" style="display: none">
+        <form class ="register-form" method="GET">
+
+                <h3>Edit Staff Details</h3>
                 <br>
                 <label>Staff Type</label>
                 <br>
-                <select name="userType" onchange="getSelectValue();" id="userType">
+                <select name="userType" onchange="changeDiv();"  id="userType">
                     <option value="0">Choose A Staff Type</option>
                     <option value="1">Receptionist</option>
                     <option value="2">Doctor</option>
                     <option value="3">System Administrator</option>
                 </select>
                 <br><br>
-                <div id="receptionist" style="display: none">
+                <div id="receptionist"  action="sysadminManage.html" style="display: none">
                     <label>First Name</label>
                     <input id="s_FName" type="text" class="form-control" placeholder="User's First Name">
                     <label>Last Name</label>
@@ -50,18 +64,17 @@
                     <label>Staff ID</label>
                     <input id="s_ID" type="number" class="form-control" placeholder="User's new staff ID">
                     <label>Password</label>
-                    <input id="s_Password" type="password" class="form-control" placeholder="User's new password">
+                    <input id="s_Password" type="text" class="form-control" placeholder="User's new password">
                     <label>Email Address</label>
                     <input id="s_Email" type="email" class="form-control" placeholder="User's Email Address">
                     <label>Contact Number</label>
                     <input id="s_Phone" type="number" class="form-control" placeholder="User's Phone Number">
                     <label>Address</label>
                     <input id="s_Address" type="text" class="form-control" placeholder="User's Home Address">
-                    <button type="submit" onClick="submitClicked()" name="submit" class="btn btn-primary">Register</button>
 
                 </div>
 
-                <div id="doctor" style="display: none">
+                <div id="doctor" action="sysadminManage.html" style="display: none">
                     <label>First Name</label>
                     <input id="d_FName" type="text" class="form-control" placeholder="Doctor's First Name">
                     <label>Last Name</label>
@@ -69,18 +82,17 @@
                     <label>Doctor ID</label>
                     <input id="d_ID" type="number" class="form-control" placeholder="Doctor's new staff ID">
                     <label>Password</label>
-                    <input id="d_Password" type="password" class="form-control" placeholder="Doctor's new password">
+                    <input id="d_Password" type="text" class="form-control" placeholder="Doctor's new password">
                     <label>Email Address</label>
                     <input id="d_Email" type="email" class="form-control" placeholder="Doctor's Email Address">
                     <label>Contact Number</label>
                     <input id="d_Phone" type="number" class="form-control" placeholder="Doctor's Phone Number">
                     <label>Doctor type</label>
                     <input id="d_Type" type="text" class="form-control" placeholder="Doctor's Field of Study">
-                    <button type="submit" onClick="submitClicked()" name="submit" class="btn btn-primary">Register</button>
 
                 </div>
 
-                <div id="sysadmin" style="display: none">
+                <div id="sysadmin" action="sysadminManage.html" style="display: none">
                     <label>First Name</label>
                     <input id="a_FName" type="text" class="form-control" placeholder="System Admin's First Name">
                     <label>Last Name</label>
@@ -88,13 +100,16 @@
                     <label>System Admin ID</label>
                     <input id="a_ID" type="number" class="form-control" placeholder="System Admin's new staff ID">
                     <label>Password</label>
-                    <input id="a_Password" type="password" class="form-control" placeholder="System Admin's new password">
-                    <button type="submit" onClick="submitClicked()" name="submit" class="btn btn-primary">Register</button>
+                    <input id="a_Password" type="text" class="form-control" placeholder="System Admin's new password">
 
                 </div>
                 <br>
+                
             </form>
-  
+            <button type="submit" onClick="submitClicked()" name="update" class="btn btn-primary">Register</button>
+
+            </div>
+
 
     <!--JavaScript -->
     <script src="../js/editUser.js"></script>

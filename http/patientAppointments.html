@@ -12,6 +12,9 @@
     <!--Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
 
+    <!--JavaScript -->
+    <script src="../js/patientsAppointment.js"></script>
+
     <title>UTS Medical Facility Booking System</title>
 </head>
 <body>
@@ -27,27 +30,49 @@
     </div>
 </div>
 
+<!-- Navigation bar -->
 <ul class="nav nav-tabs">
         <li class="nav-item">
-            
-          <a class="nav-link" href="../http/patientHome.html">Home</a>
+          <a id="home_nav" class="nav-link" href="../http/patientHome.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="../http/patientAppointments.html">Book Appointment For Patient</a>
+            <a id ="book_nav" class="nav-link" href="../http/bookAppointment.html">Make Appointments</a>
+          </li>
+        <li class="nav-item">
+          <a id="view_nav" class="nav-link active" href="../http/patientAppointments.html">Your Appointments</a>
         </li>
-
         
 </ul>
 
 <!-- Appointment Table Div -->
 <div class="appointmentTableContainer">
-    table here
-</div>
+        <h3>Appointments</h3>
+        <div class="table-responsive">          
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Appointment Type</th>
+                  <th>Doctor</th>
+                  <th>Appointment Status</th>
+                </tr>
+              </thead>
+              <tbody id="table_body">
+                
+              </tbody>
+            </table>
+            </div>
+    </div>
+
 
 <!-- Manage appointments options Div -->
 <div class="manageAppointmentContainer">
-    <a href="#"><div class="manageAppointmentButton">
-        <button type="button" class="btn btn-secondary btn-sm" href="../http/bookAppointment.html">Book Appointment</button>
+    <a href="../http/bookAppointment.html"><div class="manageAppointmentButton">
+        <button type="button" class="btn btn-secondary btn-sm">Book Appointment</button>
     </a>
     <a href="#"><div class="manageAppointmentButton">
         <button type="button" class="btn btn-secondary btn-sm">Edit Appointment</button>
@@ -55,6 +80,9 @@
     <button type="button" class="btn btn-secondary btn-sm">Delete Appointment</button>
     
 </div>
+
+<!--JavaScript -->
+<script src="../js/patientsAppointment.js"></script>
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

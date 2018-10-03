@@ -1,5 +1,6 @@
 /*Local variables*/ 
 var staffsDict = new Map();
+var staffsTypes = new Map();
 var button = document.getElementById("submit");
 
 //Setting up firebase
@@ -23,17 +24,23 @@ ref.on('value', function(snapshot) {
 //End of setup
 
 
+
 function onLoginClicked(){
     var utsId =document.getElementById("utsId").value;
     var password = document.getElementById("password").value;
+    
     if(loginValidation(utsId,password)){
+        
         button.value=utsId;
-        window.location("../http/staffHome.html");
+        window.location.href = matchStaffType(utsId);
+        console.log(matchStaffType(utsId));
     }
     else{
         window.alert("Wrong ID or password!");
     }
+   return false;
 }
+button.addEventListener("click",onLoginClicked);
 
 function loginValidation(id,pw){
 
@@ -46,6 +53,26 @@ function loginValidation(id,pw){
 
 }
 
+function matchStaffType(Id){
+    var type = staffsTypes.get(Id);
+    console.log(type);
+    var href;
+    switch(type) {
+        case "Receptionist":
+            href = "../http/receptionistHome.html?"+"Staff_ID="+Id;
+            break;
+        case "Doctor":
+            href = "#";
+            break;
+        case "Sysadmin":
+            href = "../http/sysadminHome.html?"+"Staff_ID="+Id;
+            break;
+        default:
+            href = "#";
+    }
+    return href;
+}
+
 function snapshotToDict(snapshot) {
     var staffs = snapshot.val();
     var keys = Object.keys(staffs);
@@ -53,10 +80,14 @@ function snapshotToDict(snapshot) {
 
     for(var i = 0; i< keys.length; i++){
         var k = keys[i];
-        var ID = staffs[k].UTS_ID;
+        var ID = staffs[k].Staff_ID;
         var PW = staffs[k].Password;
-
+        var Type = staffs[k].Staff_Type;
         staffsDict.set(ID,PW);
+        staffsTypes.set(ID,Type);
     }
     console.log(staffsDict);
+    console.log(staffsTypes);
+
+
 };
