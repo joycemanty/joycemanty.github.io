@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/Main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+
+    <title>UTS Medical Facility Booking System</title>
+</head>
+<body>
+<div class="staffHeader">
+        <a href="../http/mainMenu.html"><div class="staffLogin_btn">
+                <button type="button" class="btn btn-secondary btn-sm">Logout</button>    
+            </div></a>
+    <div id="image">
+        <img src="../imageResource/UTS_whiteLogo.png" alt="UTS Logo">
+    </div>
+    <div class="bigTitle">
+        <h2>UTS Medical Facility Booking System</h2>
+    </div>
+</div>
+
+<ul class="nav nav-tabs">
+        <li class="nav-item">
+            
+          <a class="nav-link" href="../http/receptionistHome.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../http/receptionistBooking.html">Book Appointment For Patient</a>
+        </li>
+
+        
+</ul>
+
+<div class = main_appointment>
+        <center>
+                <h3>Book Appointment</h3>
+                <h4>Please enter your details to booking an Appointment</h4>
+                <form method="GET">
+                <!-- Requesting details from user -->
+                <div class = appointment_form>
+                <div class="form-group">
+                <div class="form-group row">
+                    <label for="text" class="col-sm-2 col-form-label">First Name</label>
+                    <div class="col-sm-10">
+                        <input id="f_name" type="text" class="form-control" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="text" class="col-sm-2 col-form-label">Last Name</label>
+                    <div class="col-sm-10">
+                        <input id="l_name" type="text" class="form-control" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="numder" class="col-sm-2 col-form-label">UTS_ID</label>
+                    <div class="col-sm-10">
+                        <input id="Id" type="number" class="form-control" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Date</label>
+                    <div class="col-sm-10">
+                        <vaadin-date-picker><input type="date" id="datepicker"></vaadin-date-picker>
+                    </div>
+                </div>
+                <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Time</label>
+                        <div class="col-sm-10">
+                            <input type="time""class="timepicker" id="timepicker">
+                        </div>
+                </div>
+                <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Appointment Type</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="a_type">
+                                <option value ="c">Counselling</option>
+                                <option value = "p">Physical Health</option>
+                             </select>
+                        </div>
+                </div>
+                <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Doctor Prefer</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="doctor">
+                                <option value ="Any">Any</option>
+                                <option value ="Dr Beena Chaugule">Dr Beena Chaugule</option>
+                                <option value ="Dr Albert Ling"> Dr Albert Ling</option>
+                                <option value ="Dr Leonie Matthews">Dr Leonie Matthews</option>
+                                <option value ="Dr Keping Xu">Dr Keping Xu</option>
+                             </select>
+                        </div>
+                </div>
+    
+                <button type="submit" name="submit" onClick="onBookClicked()" class="btn btn-primary">Make Appointment</button>
+                </form>
+                </div>
+            </div>
+        </center>
+    </div>
+
+    <!--JavaScript -->
+<script src="../js/bookAppointment.js"></script>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
