@@ -1,5 +1,6 @@
 setNav();
-var current_appointment;
+var current_user = getQueryVariable("id");
+var current_appointment = getQueryVariable("id");
 
 //Setting up firebase
 var config = {
@@ -17,25 +18,19 @@ var ref = database.ref('Appointments');
 
 
 //set up table content
-var targetref = ref.orderByChild('UTS_ID').equalTo(getQueryVariable("id"));
-ref.orderByChild('UTS_ID').equalTo(getQueryVariable("id"))
-    .once('value').then(function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            targetref.on("child_added", snap => {
-                var id = snap.child("UTS_ID").val();
-                var fName = snap.child("First_Name").val();
-                var lName = snap.child("Last_Name").val();
-                var date = snap.child("Date").val();;
-                var time = snap.child("Time").val();;
-                var aType = snap.child("Appointment_Type").val();
-                var doctor = snap.child("Doctor").val();
-                var aStatus = snap.child("Appointment_Status").val();
-            
-            
-                $("#table_body").append("<tr onClick='openActionForm()'><td>" + id + "</td><td>" + fName + "</td><td>" + lName + "</td><td>" + date + "</td><td>" + time + "</td><td>" + aType + "</td><td>" + doctor + "</td><td>" + aStatus + "</td></tr>");
-            });   
-    });
-});
+ref.orderByChild('UTS_ID').equalTo(getQueryVariable("id")).on("child_added", snap => {
+    var id = snap.child("UTS_ID").val();
+    var fName = snap.child("First_Name").val();
+    var lName = snap.child("Last_Name").val();
+    var date = snap.child("Date").val();;
+    var time = snap.child("Time").val();;
+    var aType = snap.child("Appointment_Type").val();
+    var doctor = snap.child("Doctor").val();
+    var aStatus = snap.child("Appointment_Status").val();
+
+
+    $("#table_body").append("<tr onClick='openActionForm()'><td>" + id + "</td><td>" + fName + "</td><td>" + lName + "</td><td>" + date + "</td><td>" + time + "</td><td>" + aType + "</td><td>" + doctor + "</td><td>" + aStatus + "</td></tr>");
+});   
 
 
 
@@ -72,6 +67,11 @@ function openActionForm() {
   
 function closeActionForm() {
     document.getElementById("action_grp").style.display = "none";
+    if (history.pushState) {
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?id=' +current_user;
+        window.history.pushState({path:newurl},'',newurl);
+    }
+    
 }
 
 function cancel(){

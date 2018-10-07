@@ -223,11 +223,6 @@ div.manageAppointmentContainer {
     border-width: 5px;
     border-radius: 10px;
     border-color: #0b2c2e;
-  }
-
-/* Add styles to the form container */
-.form-container {
-    max-width: 400px;
     padding: 10px;
     background-color: #b3b3b3;
   }
