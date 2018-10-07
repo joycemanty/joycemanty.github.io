@@ -14,6 +14,7 @@
 
     <!--JavaScript -->
     <script src="../js/patientsAppointment.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <title>UTS Medical Facility Booking System</title>
 </head>
@@ -44,8 +45,9 @@
         
 </ul>
 
+<h5>Please click on appointment for more action options.</h5>
 <!-- Appointment Table Div -->
-<div class="appointmentTableContainer">
+<div class="p_appointmentTableContainer">
         <h3>Appointments</h3>
         <div class="table-responsive">          
             <table id = "appointment_tb"class="table table-hover">
@@ -69,25 +71,14 @@
     </div>
 
 
-<!-- Manage appointments options Div -->
-<div class="manageAppointmentContainer">
-
-    <button id ="book_btn" type="button" onclick="window.location.href='../http/bookAppointment.html'" class="btn btn-secondary btn-sm">Book Appointment</button>
-    <a href="#"><div class="manageAppointmentButton">
-        <button type="button" onclick="openForm()" class="btn btn-secondary btn-sm">Edit Appointment</button>
-    </a>    
-    <button type="button" class="btn btn-secondary btn-sm">Cancel Appointment</button>
-    
-</div>
-
 <!--Pop up Edit Form -->
 <div class="form-popup" id="action_grp">
     <form action="#" class="form-container">
       <h1>Select Action</h1>
       <center>
       <button type="submit" class="btn btn-warning">Edit</button>
-      <button type="submit" class="btn btn-danger">Delete</button><br>
-      <button type="submit" class="btn btn-link" onclick="closeForm()">Close</button>
+      <button type="submit" class="btn btn-danger" onclick="cancel()">Cancel Appointment</button><br>
+      <button type="submit" class="btn btn-link" onclick="closeActionForm()">Close</button>
       </center>
     </form>
   </div>
