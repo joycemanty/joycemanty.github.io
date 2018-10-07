@@ -15,6 +15,8 @@ console.log(firebase); // testing use
 var database = firebase.database();
 var ref = database.ref('Appointments');
 
+
+
 //set up table content
 ref.on("child_added", snap => {
     var id = snap.child("UTS_ID").val();
@@ -29,7 +31,6 @@ ref.on("child_added", snap => {
 
     $("#table_body").append("<tr><td>" + id + "</td><td>" + fName + "</td><td>" + lName + "</td><td>" + date + "</td><td>" + time + "</td><td>" + aType + "</td><td>" + doctor + "</td><td>" + aStatus + "</td></tr>");
 });
-
 
 function getQueryVariable(variable)
 {
@@ -48,5 +49,13 @@ function setNav(){
     document.getElementById("view_nav").setAttribute("href", "../http/patientAppointments.html?id="+getQueryVariable("id"));
     document.getElementById("book_btn").setAttribute("href", "../http/bookAppointment.html?id="+getQueryVariable("id"));
 }
+
+function openForm() {
+    document.getElementById("action_grp").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("action_grp").style.display = "none";
+  }
 
 

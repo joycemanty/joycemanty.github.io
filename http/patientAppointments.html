@@ -48,7 +48,7 @@
 <div class="appointmentTableContainer">
         <h3>Appointments</h3>
         <div class="table-responsive">          
-            <table class="table table-hover">
+            <table id = "appointment_tb"class="table table-hover">
               <thead>
                 <tr>
                   <th>ID</th>
@@ -71,15 +71,27 @@
 
 <!-- Manage appointments options Div -->
 <div class="manageAppointmentContainer">
-    <a id ="book_btn" href="../http/bookAppointment.html"><div class="manageAppointmentButton">
-        <button type="button" class="btn btn-secondary btn-sm">Book Appointment</button>
-    </a>
+
+    <button id ="book_btn" type="button" onclick="window.location.href='../http/bookAppointment.html'" class="btn btn-secondary btn-sm">Book Appointment</button>
     <a href="#"><div class="manageAppointmentButton">
-        <button type="button" class="btn btn-secondary btn-sm">Edit Appointment</button>
+        <button type="button" onclick="openForm()" class="btn btn-secondary btn-sm">Edit Appointment</button>
     </a>    
     <button type="button" class="btn btn-secondary btn-sm">Cancel Appointment</button>
     
 </div>
+
+<!--Pop up Edit Form -->
+<div class="form-popup" id="action_grp">
+    <form action="#" class="form-container">
+      <h1>Select Action</h1>
+      <center>
+      <button type="submit" class="btn btn-warning">Edit</button>
+      <button type="submit" class="btn btn-danger">Delete</button><br>
+      <button type="submit" class="btn btn-link" onclick="closeForm()">Close</button>
+      </center>
+    </form>
+  </div>
+
 
 <!--JavaScript -->
 <script src="../js/patientsAppointment.js"></script>
@@ -88,5 +100,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </body>
 </html>
