@@ -12,7 +12,11 @@ var config = {
 
 
     var rootRef = firebase.database().ref().child('Appointments');
+    var userRef = firebase.database().ref().child('Users');
 
+    var email;
+    var userFName;
+    var key;
 
 
     rootRef.on("child_added", snap => {
@@ -30,10 +34,21 @@ var config = {
     });
 
 
-function sendEmail() {
-    var email = "christian.nguyen57@gmail.com";
-    var subject = "Subject Text";
-    var emailBody = 'Hi ';
-    document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
-}
+
+      
+      function sendEmail() {
+        userRef.on("child_added", snap => {               
+            if(document.getElementById('id').value == snap.child("UTS_ID").val()) {
+                    email = snap.child("Email").val();
+                    userFName = snap.child("First_Name").val();
+                    // records the staff's key in firebase
+                    key = snap.key;
+                    var subject ='Appointment Reminder';
+                    var emailBody = 'Hi ' + userFName + ",\n\n" + ' this is a reminder for your upcomming appointment, to check the appointment details, log in to your account on the UTS Medical Facility website.';
+                    document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
+                    alert("Please wait for email client to load");
+            }
+        });
+    
+      }
     
