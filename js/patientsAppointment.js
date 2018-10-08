@@ -9,6 +9,7 @@ var date;
 var time;
 var aType;
 var doctor;
+var key;
 
 //Setting up firebase
 var config = {
@@ -73,7 +74,8 @@ function openEditForm() {
                     document.getElementById("datepicker").value  = childSnapshot.child("Date").val();   
                     document.getElementById("timepicker").value  = childSnapshot.child("Time").val();   
                     document.getElementById("a_type").value  = childSnapshot.child("Appointment_Type").val();   
-                    document.getElementById("doctor").value  = childSnapshot.child("Doctor").val();        
+                    document.getElementById("doctor").value  = childSnapshot.child("Doctor").val();     
+                    key = childSnapshot.key;   
             });
         });
 }
@@ -92,7 +94,7 @@ function openActionForm() {
     $('#appointment_tb').find('tr').click( function(){
         var row = $(this).find('td:first').text();
         current_appointment=row;
-        current_details = $('.trSelected td').eq(4).text()
+        current_details =$(this).find('td').eq(4).text();
         console.log(current_appointment+", "+current_details);
       });
     
@@ -122,5 +124,30 @@ function deleteItem(){
         });
     window.location.reload();
 }
+
+function onSaveClicked(){
+    fName=document.getElementById("f_name").value; 
+    lName=document.getElementById("l_name").value;  
+    id=document.getElementById("Id").value; 
+    date=document.getElementById("datepicker").value;
+    time=document.getElementById("timepicker").value;
+    aType=document.getElementById("a_type").value; 
+    doctor=document.getElementById("doctor").value;
+
+    var edited_appointment = ref.child(key)
+    edited_appointment.child("First_Name").set(fName);
+    edited_appointment.child("Last_Name").set(lName);
+    edited_appointment.child("UTS_ID").set(id);
+    edited_appointment.child("Date").set(date);
+    edited_appointment.child("Time").set(time);
+    edited_appointment.child("Appointment_Type").set(aType);
+    edited_appointment.child("Doctor").set(doctor);
+    edited_appointment.child("Appointment_Status").set("Not Approved");
+
+    closeEditForm();
+    window.alert("Saved! Please wait for approval.");
+    window.location.reload();
+}
+
 
 
