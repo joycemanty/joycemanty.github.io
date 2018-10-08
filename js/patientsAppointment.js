@@ -2,6 +2,13 @@ setNav();
 var current_user = getQueryVariable("id");
 var current_appointment = getQueryVariable("id");
 var current_details;
+var id;
+var fName ;
+var lName ;
+var date;
+var time;
+var aType;
+var doctor;
 
 //Setting up firebase
 var config = {
@@ -20,13 +27,13 @@ var ref = database.ref('Appointments');
 
 //set up table content
 ref.orderByChild('UTS_ID').equalTo(getQueryVariable("id")).on("child_added", snap => {
-    var id = snap.child("UTS_ID").val();
-    var fName = snap.child("First_Name").val();
-    var lName = snap.child("Last_Name").val();
-    var date = snap.child("Date").val();;
-    var time = snap.child("Time").val();;
-    var aType = snap.child("Appointment_Type").val();
-    var doctor = snap.child("Doctor").val();
+    id = snap.child("UTS_ID").val();
+    fName = snap.child("First_Name").val();
+    lName = snap.child("Last_Name").val();
+    date = snap.child("Date").val();;
+    time = snap.child("Time").val();;
+    aType = snap.child("Appointment_Type").val();
+    doctor = snap.child("Doctor").val();
     var aStatus = snap.child("Appointment_Status").val();
 
 
@@ -55,6 +62,31 @@ function setNav(){
 }
 
 
+function openEditForm() {
+    document.getElementById("edit_form").style.display = "block";
+    ref.orderByChild('Time').equalTo(current_details)
+            .once('value').then(function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                    document.getElementById("f_name").value = childSnapshot.child("First_Name").val();  
+                    document.getElementById("l_name").value = childSnapshot.child("Last_Name").val();   
+                    document.getElementById("Id").value = childSnapshot.child("UTS_ID").val();   
+                    document.getElementById("datepicker").value  = childSnapshot.child("Date").val();   
+                    document.getElementById("timepicker").value  = childSnapshot.child("Time").val();   
+                    document.getElementById("a_type").value  = childSnapshot.child("Appointment_Type").val();   
+                    document.getElementById("doctor").value  = childSnapshot.child("Doctor").val();        
+            });
+        });
+}
+    
+function closeEditForm() {
+    document.getElementById("edit_form").style.display = "none";
+    if (history.pushState) {
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?id=' +current_user;
+        window.history.pushState({path:newurl},'',newurl);
+    }
+    
+}
+
 function openActionForm() {
     document.getElementById("action_grp").style.display = "block";
     $('#appointment_tb').find('tr').click( function(){
@@ -65,7 +97,6 @@ function openActionForm() {
       });
     
 }
-    
   
 function closeActionForm() {
     document.getElementById("action_grp").style.display = "none";
