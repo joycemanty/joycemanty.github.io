@@ -40,21 +40,45 @@
 </ul>
 
 <!-- Appointment Table Div -->
-<div class="appointmentTableContainer">
-    table here
-</div>
+        <div class="appointmentTableContainer">
+                <h3>Appointments</h3>
+                <div class="table-responsive">          
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Firstname</th>
+                          <th>Lastname</th>
+                          <th>Date</th>
+                          <th>Time</th>
+                          <th>Appointment Type</th>
+                          <th>Doctor</th>
+                          <th>Appointment Status</th>
+                        </tr>
+                      </thead>
+                      <tbody id="table_body">
+                        
+                      </tbody>
+                    </table>
+                    </div>
+            </div>
 
 <!-- Manage appointments options Div -->
 <div class="manageAppointmentContainer">
-    <a href="#"><div class="manageAppointmentButton">
+    <a href="receptionistBookAppointmentment.html"><div class="manageAppointmentButton">
         <button type="button" class="btn btn-secondary btn-sm">Book Appointment</button>
     </a>
-    <a href="#"><div class="manageAppointmentButton">
+    <a href="../http/receptionistEditAppointment.html"><div class="manageAppointmentButton">
         <button type="button" class="btn btn-secondary btn-sm">Edit Appointment</button>
-    </a>    
-    <button type="button" class="btn btn-secondary btn-sm">Delete Appointment</button>
-    
+    </a> 
+    <a href="../http/receptionistDeleteAppointment.html">   
+        <button type="button" class="btn btn-secondary btn-sm">Delete Appointment</button>
+    </a>
 </div>
+
+<!-- JavaScript-->
+<script src="../js/appointmentSchedule.js"></script>
+
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
