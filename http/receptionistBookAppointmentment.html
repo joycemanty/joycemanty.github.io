@@ -41,6 +41,7 @@
 
 <div class = main_appointment>
         <center>
+            <div id="form">
                 <h3>Book Appointment</h3>
                 <h4>Please enter your details to booking an Appointment</h4>
                 <form method="GET">
@@ -103,7 +104,18 @@
                 </form>
                 </div>
             </div>
+        </div>
         </center>
+        <div id="contactMessage" style="display: none">
+            <h3>Would you like to notify the patient for their new appointment?</h3>
+            <br>
+            <div class="form-group row">
+                <a href="../http/receptionistBooking.html">
+                    <button class="btn btn-outline-light"> Return to Appointment Schedule</button>
+                </a>
+                <button type="button" onClick="sendEmail()" class="btn btn-primary">Contact & Continue</button>
+            </div>
+        </div>
     </div>
 
     <!--JavaScript -->

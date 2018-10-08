@@ -15,6 +15,7 @@ var ref = database.ref('Staffs');
 
 
 var rootRef = firebase.database().ref().child('Appointments');
+var userRef = firebase.database().ref().child('Users');
 
 var id;
 var fName;
@@ -25,18 +26,22 @@ var type;
 var doctor;
 var status;
 var key;
+var dateCheck;
+var timeCheck;
+var doctorCheck;
+
+var email
+var userFName;
 
 
 function readDetails() {
 
-    var dateCheck = document.getElementById("dateCheck").value;
-    var timeCheck = document.getElementById("timeCheck").value;
-    var doctorCheck = document.getElementById("doctorCheck").value;
+    dateCheck = document.getElementById("dateCheck").value;
+    timeCheck = document.getElementById("timeCheck").value;
+    doctorCheck = document.getElementById("doctorCheck").value;
     
 
     rootRef.on("child_added", snap => {      
-        console.log(snap.child("Time").val());
-    console.log(timeCheck);
         if(dateCheck === snap.child("Date").val() && timeCheck === snap.child("Time").val() && doctorCheck === snap.child("Doctor").val()) {
                 id = snap.child("UTS_ID").val();
                 type = snap.child("Appointment_Type").val();
@@ -73,8 +78,10 @@ function readDetails() {
 function submitClicked(){
     if(formValidation()){
       saveData();
-      window.location.href = "../http/receptionistBooking.html";
-
+      getUser();
+      
+      document.getElementById('form').style.display = 'none';
+      document.getElementById('contactMessage').style.display = 'block';
     }
     else{
       window.alert("Form's not completed!");
@@ -107,5 +114,24 @@ function submitClicked(){
       appointment.child("Date").set(date);
       appointment.child("Time").set(time);
       appointment.child("Doctor").set(doctor);
+
+}
+
+function getUser() {
+  userRef.on("child_added", snap => {               
+      if(id == snap.child("UTS_ID").val()) {
+              email = snap.child("Email").val();
+              userFName = snap.child("First_Name").val();
+              // records the staff's key in firebase
+              key = snap.key;
+      }
+  });
+}
+
+function sendEmail() {
+  var subject ='Appointment Detials Changed';
+  var emailBody = 'Hi ' + userFName + ",\n\n" + ' your ' + dateCheck + ' ' + timeCheck + ' appointment has been changed. Please check the new details in your account on the UTS Medical Facility website.';
+  document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
+  alert("Please wait for email client to load");
 
 }
