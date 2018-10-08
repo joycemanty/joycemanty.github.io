@@ -1,6 +1,7 @@
 setNav();
 var current_user = getQueryVariable("id");
 var current_appointment = getQueryVariable("id");
+var current_details;
 
 //Setting up firebase
 var config = {
@@ -29,7 +30,7 @@ ref.orderByChild('UTS_ID').equalTo(getQueryVariable("id")).on("child_added", sna
     var aStatus = snap.child("Appointment_Status").val();
 
 
-    $("#table_body").append("<tr onClick='openActionForm()'><td>" + id + "</td><td>" + fName + "</td><td>" + lName + "</td><td>" + date + "</td><td>" + time + "</td><td>" + aType + "</td><td>" + doctor + "</td><td>" + aStatus + "</td></tr>");
+    $("#table_body").append("<tr onClick='openActionForm()' class='trSelected'><td>" + id + "</td><td>" + fName + "</td><td>" + lName + "</td><td>" + date + "</td><td>" + time + "</td><td>" + aType + "</td><td>" + doctor + "</td><td>" + aStatus + "</td></tr>");
 });   
 
 
@@ -59,7 +60,8 @@ function openActionForm() {
     $('#appointment_tb').find('tr').click( function(){
         var row = $(this).find('td:first').text();
         current_appointment=row;
-        console.log(current_appointment);
+        current_details = $('.trSelected td').eq(4).text()
+        console.log(current_appointment+", "+current_details);
       });
     
 }
@@ -80,14 +82,14 @@ function cancel(){
 }
 
 function deleteItem(){
-    ref.orderByChild('UTS_ID').equalTo(current_appointment)
-    .once('value').then(function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-        //remove each child
-        ref.child(childSnapshot.key).remove();
-    });
+    ref.orderByChild('Time').equalTo(current_details)
+            .once('value').then(function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                //remove each child
+                ref.child(childSnapshot.key).remove();
+            });
+        });
     window.location.reload();
-});
 }
 
 
