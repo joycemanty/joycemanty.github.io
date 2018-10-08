@@ -11,8 +11,12 @@ firebase.initializeApp(config);
 console.log(firebase); // testing use
 var database = firebase.database();
 var ref = database.ref('Appointments');
+var rootRef = firebase.database().ref().child('Users');
 
 var f_name,l_name,Id,date,time,a_type,doctor;
+
+var email
+var userFName;
 
 function getQueryVariable(variable)
 {
@@ -31,9 +35,23 @@ function getQueryVariable(variable)
 function onBookClicked(){
     console.log(getValue);
     getValue();
+    getUser();
     saveValue();
     window.alert("Booking success! Please wait for approval.");
-    window.location.href="../http/receptionistBooking.html";
+
+    document.getElementById('form').style.display = 'none';
+    document.getElementById('contactMessage').style.display = 'block';
+}
+
+function getUser() {
+    rootRef.on("child_added", snap => {               
+        if(document.getElementById("Id").value == snap.child("UTS_ID").val()) {
+                email = snap.child("Email").val();
+                userFName = snap.child("First_Name").val();
+                // records the staff's key in firebase
+                key = snap.key;
+        }
+    });
 }
 
 function getValue(){
@@ -61,4 +79,12 @@ function saveValue(){
     ref.push(data);
     console.log(data);
 
+}
+
+function sendEmail() {
+    var subject ='New Appointment Booked';
+    var emailBody = 'Hi ' + userFName + ",\n\n" + 'A new appointment has been booked for you, please check the date and time in your account on the UTS Medical Facility website.';
+    document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
+
+    alert("Please wait for email client to load");
 }

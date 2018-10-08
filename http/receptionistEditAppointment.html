@@ -43,34 +43,33 @@
         
         <div id="appointmentCheck" class="form">
             <form class="register-form" action="receptionistEditUsers.html" method="GET">
-
-                        <h3>Enter Chosen Appointment</h3>                       
-                        <br>
-                        <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Date</label>
-                                <div class="col-sm-10">
-                                    <vaadin-date-picker><input type="date" class="form-control" id="dateCheck"></vaadin-date-picker>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Time</label>
-                                    <div class="col-sm-10">
-                                        <input type="time" class="form-control" id="timeCheck">
-                                    </div>
-                            </div>
+                <h3>Enter Chosen Appointment</h3>                       
+                <br>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Date</label>
+                     <div class="col-sm-10">
+                       <vaadin-date-picker><input type="date" class="form-control" id="dateCheck"></vaadin-date-picker>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Time</label>
+                        <div class="col-sm-10">
+                            <input type="time" class="form-control" id="timeCheck">
+                        </div>
+                </div>
                             
-                            <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Doctor Prefer</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-control" id="doctorCheck">
-                                            <option value ="Any">Any</option>
-                                            <option value ="Dr Beena Chaugule">Dr Beena Chaugule</option>
-                                            <option value ="Dr Albert Ling"> Dr Albert Ling</option>
-                                            <option value ="Dr Leonie Matthews">Dr Leonie Matthews</option>
-                                            <option value ="Dr Keping Xu">Dr Keping Xu</option>
-                                         </select>
-                                    </div>
-                            </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Doctor Prefer</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="doctorCheck">
+                                <option value ="Any">Any</option>
+                                <option value ="Dr Beena Chaugule">Dr Beena Chaugule</option>
+                                <option value ="Dr Albert Ling"> Dr Albert Ling</option>
+                                <option value ="Dr Leonie Matthews">Dr Leonie Matthews</option>
+                                <option value ="Dr Keping Xu">Dr Keping Xu</option>
+                            </select>
+                        </div>
+                </div>
             </form>
             <br>
             <button type="submit" onClick="readDetails()" class="btn btn-primary">Next ></button>
@@ -141,9 +140,22 @@
             </form>
             </div>
         </div>
+        
     </center>
+    
 </div>
 
+<div id="contactMessage" class="form" style="display: none">
+        <h3>Would you like to notify the patient for their changed appointment details?</h3>
+        <br>
+        <div class="form-group row">
+                <a href="../http/receptionistBooking.html">
+                    <button class="btn btn-outline-primary"> Return to Appointment Schedule</button>
+                </a>
+                <button type="button" onClick="sendEmail()" class="btn btn-primary">Contact & Continue</button>
+            </div>
+        
+    </div>
 
 
     <!--JavaScript -->

@@ -30,4 +30,10 @@ var config = {
     });
 
 
+function sendEmail() {
+    var email = "christian.nguyen57@gmail.com";
+    var subject = "Subject Text";
+    var emailBody = 'Hi ';
+    document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
+}
     

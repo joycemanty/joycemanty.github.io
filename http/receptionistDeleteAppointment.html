@@ -76,7 +76,16 @@
             <button type="button" onClick="deleteAppointment()" class="btn btn-primary">Delete Appointment</button>
         </div>
 
- 
+        <div id="contactMessage" class="form" style="display: none">
+                <h3>Would you like to notify the patient for their deleted appointment?</h3>
+                <br>
+                <div class="form-group row">
+                        <a href="../http/receptionistBooking.html">
+                            <button class="btn btn-outline-primary"> Return to Appointment Schedule</button>
+                        </a>
+                        <button type="button" onClick="sendEmail()" class="btn btn-primary">Contact & Continue</button>
+                    </div>        
+                </div>
 
 
 

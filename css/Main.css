@@ -180,6 +180,20 @@ div.appointmentTableContainer{
     border-color: #00b300;
 }
 
+div.p_appointmentTableContainer{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    right: 30%;
+    Padding: 15px 10px;
+    margin-top: 7px;
+    width: 90%;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 8px;
+    border-color: #00b300;
+}
+
 div.manageAppointmentContainer {
     position: absolute;
     top: 30%;
@@ -194,3 +208,39 @@ div.manageAppointmentContainer {
     border-radius: 8px;
     border-color: #00b300;
 }
+
+/* action form popup*/
+.form-popup {
+    display: none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    width:400px;  /* adjust as per your needs */
+    height:164px;   /* adjust as per your needs */
+    margin-left:-200px;   /* negative half of width above */
+    margin-top:-82px;   /* negative half of height above */
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: #0b2c2e;
+    padding: 10px;
+    background-color: #b3b3b3;
+  }
+
+  /* edit form popup*/
+.editform-popup {
+    display: none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    width:400px;  /* adjust as per your needs */
+    height:40%;   /* adjust as per your needs */
+    margin-left:-200px;   /* negative half of width above */
+    margin-top:-20%;   /* negative half of height above */
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: #0b2c2e;
+    padding: 10px;
+    background-color: #e6dfdf;
+  }

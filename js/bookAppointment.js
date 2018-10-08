@@ -1,3 +1,5 @@
+var current_user = getQueryVariable("id");
+
 //Setting up firebase
 var config = {
     apiKey: "AIzaSyDFuBAb7gmrOzAzhkkpAxphBszEr5O0l_k",
@@ -38,7 +40,7 @@ function onBookClicked(){
     getValue();
     saveValue();
     window.alert("Booking success! Please wait for approval.");
-    window.location.herf= "../http/patientAppointments.html";
+    window.location.replace("../http/patientHome.html?id="+current_user);
 }
 
 function getValue(){

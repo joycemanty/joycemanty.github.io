@@ -15,14 +15,20 @@ var ref = database.ref('Staffs');
 
 
 var rootRef = firebase.database().ref().child('Appointments');
+var userRef = firebase.database().ref().child('Users');
 
+var id
 
+var email
+var userFName;
 
+var dateCheck
+var timeCheck
 
 function deleteAppointment() {
 
-    var dateCheck = document.getElementById("dateCheck").value;
-    var timeCheck = document.getElementById("timeCheck").value;
+    dateCheck = document.getElementById("dateCheck").value;
+    timeCheck = document.getElementById("timeCheck").value;
     var doctorCheck = document.getElementById("doctorCheck").value;
     
 
@@ -30,7 +36,7 @@ function deleteAppointment() {
         console.log(snap.child("Time").val());
     console.log(timeCheck);
         if(dateCheck === snap.child("Date").val() && timeCheck === snap.child("Time").val() && doctorCheck === snap.child("Doctor").val()) {
-                var id = snap.child("UTS_ID").val();
+                id = snap.child("UTS_ID").val();
                 var type = snap.child("Appointment_Type").val();
                 var fName = snap.child("First_Name").val();
                 var lName = snap.child("Last_Name").val();
@@ -48,9 +54,30 @@ function deleteAppointment() {
                 snapshot.forEach(function(childSnapshot) {
                 //remove each child
                 rootRef.child(childSnapshot.key).remove();
-                window.location.href = "../http/receptionistBooking.html";
+                document.getElementById('appointmentCheck').style.display = 'none';
+                document.getElementById('contactMessage').style.display = 'block';
+                getUser();
                 });
             });
         }
     });
 }
+
+function getUser() {
+    userRef.on("child_added", snap => {               
+        if(id == snap.child("UTS_ID").val()) {
+                email = snap.child("Email").val();
+                userFName = snap.child("First_Name").val();
+                // records the staff's key in firebase
+                key = snap.key;
+        }
+    });
+  }
+  
+  function sendEmail() {
+    var subject ='Appointment Deleted';
+    var emailBody = 'Hi ' + userFName + ",\n\n" + ' your ' + dateCheck + ' ' + timeCheck + ' appointment has been deleted. You can book a new appointment in your account on the UTS Medical Facility website.';
+    document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
+    alert("Please wait for email client to load");
+
+  }
