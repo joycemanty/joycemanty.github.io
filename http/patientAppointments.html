@@ -75,20 +75,70 @@
 <div class="form-popup" id="action_grp">
       <h1>Select Action</h1>
       <center>
-      <button type="submit" class="btn btn-warning">Edit</button>
+      <button type="submit" class="btn btn-warning"onclick="openEditForm()">Edit</button>
       <button type="submit" class="btn btn-danger" onclick="cancel()">Cancel Appointment</button><br>
       <button type="submit" class="btn btn-link" onclick="closeActionForm()">Close</button>
       </center>
   </div>
 
 <!--Pop up Edit Form -->
-<div class="form-popup" id="edit_form">
-        <h1>Edit Appointment</h1>
-        <center>
-        <button type="submit" class="btn btn-warning">Edit</button>
-        <button type="submit" class="btn btn-danger" onclick="cancel()">Cancel Appointment</button><br>
-        <button type="submit" class="btn btn-link" onclick="closeActionForm()">Close</button>
-        </center>
+<div class="editform-popup" id="edit_form" style="overflow:scroll">
+        <h5>Edit Appointment</h5>
+        <div class="form-group">
+                <div class="form-group row">
+                    <label for="text" class="col-sm-2 col-form-label">First Name</label>
+                    <div class="col-sm-10">
+                        <input id="f_name" type="text" class="form-control" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="text" class="col-sm-2 col-form-label">Last Name</label>
+                    <div class="col-sm-10">
+                        <input id="l_name" type="text" class="form-control" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="numder" class="col-sm-2 col-form-label">UTS_ID</label>
+                    <div class="col-sm-10">
+                        <input id="Id" type="number" class="form-control" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Date</label>
+                    <div class="col-sm-10">
+                        <vaadin-date-picker><input type="date" id="datepicker"></vaadin-date-picker>
+                    </div>
+                </div>
+                <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Time</label>
+                        <div class="col-sm-10">
+                            <input type="time" class="timepicker" id="timepicker">
+                        </div>
+                </div>
+                <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Appointment Type</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="a_type">
+                                <option value ="c">Counselling</option>
+                                <option value = "p">Physical Health</option>
+                             </select>
+                        </div>
+                </div>
+                <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Doctor Prefer</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="doctor">
+                                <option value ="Any">Any</option>
+                                <option value ="Dr Beena Chaugule">Dr Beena Chaugule</option>
+                                <option value ="Dr Albert Ling"> Dr Albert Ling</option>
+                                <option value ="Dr Leonie Matthews">Dr Leonie Matthews</option>
+                                <option value ="Dr Keping Xu">Dr Keping Xu</option>
+                             </select>
+                        </div>
+                </div>
+    
+                <button type="submit" onClick="onSaveClicked()" class="btn btn-primary">Save</button>
+                <button onClick="closeEditForm()" class="btn btn-primary">Close Form</button>
     </div>
   
 

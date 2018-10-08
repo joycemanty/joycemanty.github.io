@@ -19,5 +19,8 @@
   "dependencies": {
     "@vaadin/vaadin-date-picker": "^3.3.0-alpha1",
     "firebase": "^5.5.1"
+  },
+  "devDependencies": {
+    "cucumber": "^5.0.2"
   }
 }
