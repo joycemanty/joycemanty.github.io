@@ -62,7 +62,7 @@ function matchStaffType(Id){
             href = "../http/receptionistHome.html?"+"Staff_ID="+Id;
             break;
         case "Doctor":
-            href = "#";
+            href = "../http/doctorHome.html?Staff_ID="+Id;
             break;
         case "Sysadmin":
             href = "../http/sysadminHome.html?"+"Staff_ID="+Id;

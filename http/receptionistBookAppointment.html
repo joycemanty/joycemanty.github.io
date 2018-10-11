@@ -12,6 +12,9 @@
     <!--Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
 
+    <!--JavaScript -->
+    <script src="../js/receptionistBookAppointment.js"></script>
+
     <title>UTS Medical Facility Booking System</title>
 </head>
 <body>
@@ -27,18 +30,18 @@
     </div>
 </div>
 
+<!--Menu Nav Bar-->>
 <ul class="nav nav-tabs">
-        <li class="nav-item">
-            
-          <a class="nav-link" href="../http/receptionistHome.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="../http/receptionistBooking.html">Book Appointment For Patient</a>
-        </li>
-
-        
+    <li class="nav-item">
+        <a id ="home_nav" class="nav-link" href="../http/receptionistHome.html">Home</a>
+    </li>
+    <li class="nav-item">
+        <a id ="book_nav" class="nav-link active" href="../http/bookAppointment.html">Make Appointments</a>
+    </li>
+    <li class="nav-item">
+        <a id = "view_nav" class="nav-link" href="../http/receptionistBooking.html">Book Appointment For Patient</a>
+    </li>
 </ul>
-
 <div class = main_appointment>
         <center>
             <div id="form">
@@ -110,9 +113,6 @@
             <h3>Would you like to notify the patient for their new appointment?</h3>
             <br>
             <div class="form-group row">
-                <a href="../http/receptionistBooking.html">
-                    <button class="btn btn-outline-light"> Return to Appointment Schedule</button>
-                </a>
                 <button type="button" onClick="sendEmail()" class="btn btn-primary">Contact & Continue</button>
             </div>
         </div>
