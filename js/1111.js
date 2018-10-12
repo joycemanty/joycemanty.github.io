@@ -24,4 +24,25 @@ function VF_form1() {
 }
 
 
-   
+
+function contrastTime(start) 
+{
+    var evalue = document.getElementById(start).value;
+    var dB = new Date(evalue.replace(/-/g, "/"));
+    var d = new Date();
+    var str = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+    if (Date.parse(str) > Date.parse(dB)) 
+    {
+        return 1;
+    }
+    return 0;
+}
+
+$('#startTime').blur(function () {
+    var ret = contrastTime("startTime");
+    if (ret == 1) {
+        alert("The booking time cannot be the day before today!");
+        $(this).val('').focus();
+        return;
+    }
+});
