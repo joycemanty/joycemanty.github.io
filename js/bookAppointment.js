@@ -72,7 +72,7 @@ function getValue(){
 }
 
 function validation(){
-    if(f_name != ""&&l_name !=""&&Id !=""&&date !=""&&time !=""){
+    if(f_name != ""&&l_name !=""&&Id !=""&&date !=""){
 
     }
     else{
