@@ -57,6 +57,7 @@ function getQueryVariable(variable){
 
 function setNav(){
     document.getElementById("home_nav").setAttribute("href", "../http/patientHome.html?id="+getQueryVariable("id"));
+    document.getElementById("book_nav").setAttribute("href", "../http/bookAppointment.html?id="+getQueryVariable("id"));
     document.getElementById("view_nav").setAttribute("href", "../http/patientAppointments.html?id="+getQueryVariable("id"));
     
 }
@@ -98,6 +99,12 @@ function openActionForm() {
         current_details =$(this).find('td').eq(4).text();
         console.log(current_appointment+", "+current_details);
       });
+      ref.orderByChild('Time').equalTo(current_details)
+      .once('value').then(function(snapshot) {
+          snapshot.forEach(function(childSnapshot) {    
+              key = childSnapshot.key;   
+      });
+  });
     
 }
   
@@ -113,18 +120,11 @@ function closeActionForm() {
 /** Cancel an appointment */
 function cancel(){
     deleteItem();
-    window.alert("Please Reload the page after 15seconds")
 }
 
 /** Delete an appointment */
 function deleteItem(){
-    ref.orderByChild('Time').equalTo(current_details)
-            .once('value').then(function(snapshot) {
-                snapshot.forEach(function(childSnapshot) {
-                //remove each child
-                ref.child(childSnapshot.key).remove();
-            });
-        });
+    ref.child(key).remove();
     window.location.reload();
 }
 

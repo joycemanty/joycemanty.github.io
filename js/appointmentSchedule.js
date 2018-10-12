@@ -83,7 +83,7 @@ function openEditForm() {
 function closeEditForm() {
   document.getElementById("edit_form").style.display = "none";
   if (history.pushState) {
-      var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?id=' +current_user;
+      var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?Staff_ID=' +current_user;
       window.history.pushState({path:newurl},'',newurl);
   }
   
@@ -97,13 +97,20 @@ function openActionForm() {
       current_details =$(this).find('td').eq(4).text();
       console.log(current_appointment+", "+current_details);
     });
+
+    rootRef.orderByChild('Time').equalTo(current_details)
+          .once('value').then(function(snapshot) {
+              snapshot.forEach(function(childSnapshot) {   
+                  key = childSnapshot.key;   
+          });
+      });
   
 }
 
 function closeActionForm() {
   document.getElementById("action_grp").style.display = "none";
   if (history.pushState) {
-      var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?id=' +current_user;
+      var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?Staff_ID=' +getQueryVariable("Staff_ID");
       window.history.pushState({path:newurl},'',newurl);
   }
   
@@ -112,18 +119,11 @@ function closeActionForm() {
 /** Cancel an appointment */
 function cancel(){
   deleteItem();
-  window.alert("Please Reload the page after 15seconds")
 }
 
 /** Delete an appointment */
 function deleteItem(){
-  rootRef.orderByChild('Time').equalTo(current_details)
-          .once('value').then(function(snapshot) {
-              snapshot.forEach(function(childSnapshot) {
-              //remove each child
-              ref.child(childSnapshot.key).remove();
-          });
-      });
+  rootRef.child(key).remove();
   window.location.reload();
 }
 

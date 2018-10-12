@@ -45,7 +45,7 @@ function onBookClicked(){
     getValue();
     getUser();
     saveValue();
-    window.alert("Booking success! Please wait for approval.");
+    window.alert("Booking success!");
 
     document.getElementById('form').style.display = 'none';
     document.getElementById('contactMessage').style.display = 'block';
