@@ -24,6 +24,7 @@ firebase.initializeApp(config);
 console.log(firebase); // testing use
 var database = firebase.database();
 var ref = database.ref('Appointments');
+var pRef = database.ref('Users');
 
 
 //set up table content
@@ -41,6 +42,20 @@ ref.orderByChild('UTS_ID').equalTo(getQueryVariable("id")).on("child_added", sna
     $("#table_body").append("<tr onClick='openActionForm()' class='trSelected'><td>" + id + "</td><td>" + fName + "</td><td>" + lName + "</td><td>" + date + "</td><td>" + time + "</td><td>" + aType + "</td><td>" + doctor + "</td><td>" + aStatus + "</td></tr>");
 });   
 
+
+function setValue(){
+    pRef.orderByChild('UTS_ID').equalTo(current_user)
+    .once('value').then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            document.getElementById("f_name").innerHTML = childSnapshot.child("First_Name").val();  
+            document.getElementById("l_name").innerHTML= childSnapshot.child("Last_Name").val();   
+            document.getElementById("Id").innerHTML= childSnapshot.child("UTS_ID").val();   
+               
+            key = childSnapshot.key;   
+        });
+    });
+    
+}
 
 
 
@@ -67,6 +82,7 @@ function setNav(){
 
 
 function openEditForm() {
+    setValue();
     document.getElementById("edit_form").style.display = "block";
     ref.orderByChild('Time').equalTo(current_details)
             .once('value').then(function(snapshot) {
@@ -133,16 +149,16 @@ function deleteItem(){
 function onSaveClicked(){
     fName=document.getElementById("f_name").value; 
     lName=document.getElementById("l_name").value;  
-    id=document.getElementById("Id").value; 
     date=document.getElementById("datepicker").value;
     time=document.getElementById("timepicker").value;
     aType=document.getElementById("a_type").value; 
     doctor=document.getElementById("doctor").value;
 
+
     var edited_appointment = ref.child(key)
+    if(validation()){
     edited_appointment.child("First_Name").set(fName);
     edited_appointment.child("Last_Name").set(lName);
-    edited_appointment.child("UTS_ID").set(id);
     edited_appointment.child("Date").set(date);
     edited_appointment.child("Time").set(time);
     edited_appointment.child("Appointment_Type").set(aType);
@@ -152,6 +168,20 @@ function onSaveClicked(){
     closeEditForm();
     window.alert("Saved! Please wait for approval.");
     window.location.reload();
+    }
+    
+}
+
+function validation(){
+    if(f_name != ""&&l_name !=""&&Id !=""&&date !=""&& time!=""){
+        return true;
+    }
+    else{
+        window.alert("Please don't leave fields blank!");
+        return false;
+    }
+
+
 }
 
 

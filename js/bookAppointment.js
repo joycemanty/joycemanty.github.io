@@ -56,9 +56,12 @@ function setValue(){
 function onBookClicked(){
     console.log(getValue);
     getValue();
+    if(validation()){
     saveValue();
     window.alert("Booking success! Please wait for approval.");
     window.location.replace("../http/patientHome.html?id="+current_user);
+    }
+
 }
 
 function getValue(){
@@ -73,10 +76,11 @@ function getValue(){
 
 function validation(){
     if(f_name != ""&&l_name !=""&&Id !=""&&date !=""){
-
+        return true;
     }
     else{
         window.alert("Please don't leave fields blank!");
+        return false;
     }
 
 
