@@ -1,5 +1,4 @@
 var current_user = getQueryVariable("id");
-
 //Setting up firebase
 var config = {
     apiKey: "AIzaSyDFuBAb7gmrOzAzhkkpAxphBszEr5O0l_k",
@@ -18,6 +17,7 @@ var pRef = database.ref('Users');
 var f_name,l_name,Id,date,time,a_type,doctor;
 setNav();
 setValue();
+setDatePicker();
 
 function getQueryVariable(variable)
 {
@@ -45,10 +45,13 @@ function setValue(){
             document.getElementById("Id").innerHTML= childSnapshot.child("UTS_ID").val();   
                
             key = childSnapshot.key;   
+        });
     });
-});
-
+    
+    document.getElementById('datepicker').value = new Date();
+    document.getElementById('datepicker').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
 }
+
 
 function onBookClicked(){
     console.log(getValue);
