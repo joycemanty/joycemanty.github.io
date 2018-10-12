@@ -13,9 +13,11 @@ firebase.initializeApp(config);
 console.log(firebase); // testing use
 var database = firebase.database();
 var ref = database.ref('Appointments');
+var pRef = database.ref('Users');
 
 var f_name,l_name,Id,date,time,a_type,doctor;
 setNav();
+setValue();
 
 function getQueryVariable(variable)
 {
@@ -34,6 +36,19 @@ function setNav(){
     document.getElementById("view_nav").setAttribute("href", "../http/patientAppointments.html?id="+getQueryVariable("id"));
 }
 
+function setValue(){
+    pRef.orderByChild('UTS_ID').equalTo(current_user)
+    .once('value').then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            document.getElementById("f_name").innerHTML = childSnapshot.child("First_Name").val();  
+            document.getElementById("l_name").innerHTML= childSnapshot.child("Last_Name").val();   
+            document.getElementById("Id").innerHTML= childSnapshot.child("UTS_ID").val();   
+               
+            key = childSnapshot.key;   
+    });
+});
+
+}
 
 function onBookClicked(){
     console.log(getValue);
@@ -44,14 +59,26 @@ function onBookClicked(){
 }
 
 function getValue(){
-    f_name = document.getElementById("f_name").value;
-    l_name = document.getElementById("l_name").value;
-    Id = document.getElementById("Id").value;
+    f_name = document.getElementById("f_name").innerHTML;
+    l_name = document.getElementById("l_name").innerHTML;
+    Id = document.getElementById("Id").innerHTML;
     date = document.getElementById("datepicker").value;
     time = document.getElementById("timepicker").value;
     a_type = document.getElementById("a_type").value;
     doctor = document.getElementById("doctor").value;
 }
+
+function validation(){
+    if(f_name != ""&&l_name !=""&&Id !=""&&date !=""&&time !=""){
+
+    }
+    else{
+        window.alert("Please don't leave fields blank!");
+    }
+
+
+}
+
 
 function saveValue(){
     var data;
