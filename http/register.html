@@ -30,32 +30,22 @@
         </div>
         
         <div class="form">
-            <form class ="register-form" action="login.html" method="GET">
                 <h3>Registration Form</h3>
                 <br>
                 <h4>Basic Information</h4>
-                <label>First Name</label>
-                <input id="fName" type="text" class="form-control" placeholder="Your First Name">
-                <label>Last Name</label>
-                <input id="lName" type="text" class="form-control" placeholder="Your Last Name">
-                <label>UTS Student/Staff ID</label>
-                <input id="utsId" type="number" class="form-control" placeholder="Student/Staff ID">
-                <label>Password</label>
-                <input id="password"type="password" class="form-control" placeholder="Password">
-                <label>Email Address</label>
-                <input id="email" type="email" class="form-control" placeholder="Your Email">
-                <label>Contact Number</label>
-                <input id="cNumber" type="number" class="form-control" placeholder="Phone Number">
-                <label>Address</label>
-                <input id="address" type="text" class="form-control" placeholder="Your Home Address">
+                First Name<input id="fName" type="text" class="form-control" placeholder="Your First Name" required>
+                Last Name]<input id="lName" type="text" class="form-control" placeholder="Your Last Name" required>
+                UTS Student/Staff ID<input id="utsId" type="number" class="form-control" placeholder="Student/Staff ID" required>
+                Password<input id="password"type="password" class="form-control" placeholder="Password" required>
+                Email Address<input id="email" type="email" class="form-control" placeholder="Your Email" required>
+                Contact Number<input id="cNumber" type="number" class="form-control" placeholder="Phone Number" required>
+                Address<input id="address" type="text" class="form-control" placeholder="Your Home Address">
                 <h4>Health Details</h4>
                 <label>Do you have any allergies or are you sensitive to drugs or dressings?</label>
                 <div class ="form-check">
                 <input id="allergies_y" class="checkbox_grp" type="radio" name="allergiesRadios" id="radio1" value="true">
                 <label class="form-check-label" for="radio1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</label>
-                </div>
-                <div class ="form-check">
-                <input class="checkbox_grp" type="radio" name="allergiesRadios" id="radio2" value="false">
+                <input class="checkbox_grp" type="radio" name="allergiesRadios" id="radio2" value="false" checked="checked">
                 <label class="form-check-label" for="radio2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No</label>
                 </div>
                 <div class="form-group">
@@ -129,17 +119,13 @@ behalf in order to access ongoing medical care in keeping with privacy legislati
                 </div>
                 <label>I consent:</label>
                 <div class ="form-check">
-                <input class="checkbox_grp" type="radio" name="exampleRadios" id="consent_y" value="yes">
+                <input class="checkbox_grp" type="radio" id="consent_y" value="yes">
                 <label class="form-check-label" for="consent_y">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</label>
-                </div>
-                <div class ="form-check">
-                <input class="checkbox_grp" type="radio" name="exampleRadios" id="consent_n" value="no">
-                <label class="form-check-label" for="consent_n">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No</label>
                 </div>
                 <label>I have read and I understand all of the above:</label> 
                <div class="form-check">
                     <input class="checkbox_grp" type="checkbox" value="yes" id="reg_final_confirm">
-                    <label class="form-check-label" for="Asthma">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</label>
+                    <label class="form-check-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</label>
                 </div>
 
                 <!--End of form-->
@@ -147,8 +133,7 @@ behalf in order to access ongoing medical care in keeping with privacy legislati
                 <a href="../http/login.html">
                     <button type="button" class="btn btn-outline-secondary">Back</button>
                 </a>
-                <button type="submit" onClick="submitClicked()" name="submit" class="btn btn-primary">Register</button>
-            </form>
+                <button type="submit" onClick="submitClicked()"class="btn btn-primary">Register</button>
         </div>
 
 

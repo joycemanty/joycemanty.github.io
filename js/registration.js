@@ -21,13 +21,12 @@ var ref = database.ref('Users');
  var email = document.getElementById("email");
  var contact_num = document.getElementById("cNumber");
  var address = document.getElementById("address");
- var allergies = document.getElementsByName("allergiesRadio");//note
+ var allergies = document.querySelector('input[name="allergiesRadios"]:checked');
  var current_meditation = document.getElementById("current_medication");
  var family_history;
 
 
-function getAllergiesValue(allergiesRadios)
-{
+function getAllergiesValue(){
    var allergiesRadio = document.forms[0].elements[allergiesRadios]
  console.log(allergiesRadios.length);
    for(var i = 0; i < allergiesRadio.length; i++)
@@ -54,16 +53,36 @@ function getFamiliyHistory(){
 function submitClicked(){
   if(formValidation()){
     saveData();
-    window.location("../http/login.html");
-    //window.alert("Registration Completed! Please Login for booking now!");
-  }
-  else{
-    window.alert("Form's not completed!");
+    window.alert("Register success!");
+    window.location.replace("../http/login.html");
   }
 }
 
 function formValidation(){
-  return true;
+  var msg;
+  if(utsId.value!=""&&fName.value!==""&&password.value!=""&&email.value!=""&&contact_num.value!=""){
+    if(utsId.value.length=8){
+    if(document.getElementById("consent_y").checked){
+        if(document.getElementById("reg_final_confirm").checked){
+          return true;
+        }
+        else{
+          msg = "You need to agree with the policy."
+        }
+    }
+    else{
+      msg = "You need to consent."
+    }
+  }
+  else{
+    msg = "Please enter valid UTS ID";
+  }
+  }
+  else{
+    msg="Please don't leave personal information blank";
+  }
+
+  window.alert(msg);
 }
 
 function saveData(){
@@ -76,7 +95,7 @@ function saveData(){
     Email: email.value,
     Contact_Number: contact_num.value,
     Address: address.value,
-    //Allergies: getAllergiesValue(allergies) <<< Not success yet
+    Allergies: allergies.value,
     Current_Medication: current_meditation.value,
     Familiy_History: getFamiliyHistory(),
   }
