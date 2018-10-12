@@ -12,6 +12,9 @@
     <!--Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
 
+    <!-- JavaScript-->
+    <script src="../js/appointmentSchedule.js"></script>
+
     <title>UTS Medical Facility Booking System</title>
 </head>
 <body>
@@ -27,23 +30,24 @@
     </div>
 </div>
 
+<!--Menu Nav Bar-->
 <ul class="nav nav-tabs">
-        <li class="nav-item">
-            
-          <a class="nav-link" href="../http/receptionistHome.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="../http/receptionistBooking.html">Book Appointment For Patient</a>
-        </li>
-
-        
+    <li class="nav-item">
+        <a id ="home_nav" class="nav-link" href="../http/receptionistHome.html">Home</a>
+    </li>
+    <li class="nav-item">
+        <a id ="book_nav" class="nav-link" href="../http/bookAppointment.html">Book Appointment For Patient</a>
+    </li>
+    <li class="nav-item">
+        <a id = "view_nav" class="nav-link active" href="../http/receptionistBooking.html">Manage Appointments</a>
+    </li>
 </ul>
 
 <!-- Appointment Table Div -->
-        <div class="appointmentTableContainer">
+        <div class="p_appointmentTableContainer">
                 <h3>Appointments</h3>
                 <div class="table-responsive">          
-                    <table class="table table-hover">
+                    <table id = "appointment_tb" class="table table-hover">
                       <thead>
                         <tr>
                           <th>ID</th>
@@ -63,18 +67,88 @@
                     </div>
             </div>
 
-<!-- Manage appointments options Div -->
-<div class="manageAppointmentContainer">
-    <a href="receptionistBookAppointmentment.html"><div class="manageAppointmentButton">
-        <button type="button" class="btn btn-secondary btn-sm">Book Appointment</button>
-    </a>
-    <a href="../http/receptionistEditAppointment.html"><div class="manageAppointmentButton">
-        <button type="button" class="btn btn-secondary btn-sm">Edit Appointment</button>
-    </a> 
-    <a href="../http/receptionistDeleteAppointment.html">   
-        <button type="button" class="btn btn-secondary btn-sm">Delete Appointment</button>
-    </a>
+
+<!--Pop up Action Button  Form -->
+<div class="form-popup" id="action_grp">
+    <h1>Select Action</h1>
+    <center>
+    <button type="submit" class="btn btn-warning"onclick="openEditForm()">Edit</button>
+    <button type="submit" class="btn btn-danger" onclick="cancel()">Cancel Appointment</button>
+    <button type="submit" class="btn btn-info" onclick="contact()">Contact Patients</button><br>
+    <button type="submit" class="btn btn-link" onclick="closeActionForm()">Close</button>
+    </center>
 </div>
+
+<!--Pop up Edit Form -->
+<div class="editform-popup" id="edit_form" style="overflow:scroll">
+    <h5>Edit Appointment</h5>
+    <div class="form-group">
+            <div class="form-group row">
+                <label for="text" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                    <input id="f_name" type="text" class="form-control" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="text" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input id="l_name" type="text" class="form-control" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="numder" class="col-sm-2 col-form-label">UTS_ID</label>
+                <div class="col-sm-10">
+                    <input id="Id" type="number" class="form-control" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm-10">
+                    <vaadin-date-picker><input type="date" id="datepicker"></vaadin-date-picker>
+                </div>
+            </div>
+            <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Time</label>
+                    <div class="col-sm-10">
+                        <input type="time" class="timepicker" id="timepicker">
+                    </div>
+            </div>
+            <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Appointment Type</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="a_type">
+                            <option value ="c">Counselling</option>
+                            <option value = "p">Physical Health</option>
+                         </select>
+                    </div>
+            </div>
+            <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Doctor Prefer</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="doctor">
+                            <option value ="Any">Any</option>
+                            <option value ="Dr Beena Chaugule">Dr Beena Chaugule</option>
+                            <option value ="Dr Albert Ling"> Dr Albert Ling</option>
+                            <option value ="Dr Leonie Matthews">Dr Leonie Matthews</option>
+                            <option value ="Dr Keping Xu">Dr Keping Xu</option>
+                         </select>
+                    </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Appointment Status</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="a_status">
+                        <option value ="Approved">Approved</option>
+                        <option value = "Not Approved">Not Approved</option>
+                        <option value = "Pending">Pending</option>
+                     </select>
+                </div>
+        </div>
+
+            <button type="submit" onClick="onSaveClicked()" class="btn btn-primary">Save</button>
+            <button onClick="closeEditForm()" class="btn btn-primary">Close Form</button>
+</div>
+
 
 <!-- JavaScript-->
 <script src="../js/appointmentSchedule.js"></script>

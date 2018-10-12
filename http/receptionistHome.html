@@ -12,6 +12,9 @@
     <!--Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
 
+    <!--JavaScript -->
+    <script src="../js/receptionistHome.js"></script>
+
     <title>UTS Medical Facility Booking System</title>
 </head>
 <body>
@@ -27,23 +30,26 @@
     </div>
 </div>
 
+<!--Menu Nav Bar-->
 <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" href="../http/receptionistHome.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../http/receptionistBooking.html">Book Appointment For Patient</a>
-        </li>
-
-        
+    <li class="nav-item">
+        <a id ="home_nav" class="nav-link active" href="../http/receptionistHome.html">Home</a>
+    </li>
+    <li class="nav-item">
+        <a id ="book_nav" class="nav-link" href="../http/bookAppointment.html">Book Appointment For Patient</a>
+    </li>
+    <li class="nav-item">
+        <a id = "view_nav" class="nav-link" href="../http/receptionistBooking.html">Manage Appointments</a>
+    </li>
 </ul>
+
 <div class="main_appointment" align="center">
         <h3 id="idReceived"></h3>
     </div>
 
 </div>
 <!--JavaScript -->
-<script src="../js/staffHome.js"></script>
+<script src="../js/receptionistHome.js"></script>
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

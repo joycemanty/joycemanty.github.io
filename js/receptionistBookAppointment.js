@@ -1,3 +1,4 @@
+setNav();
 //Setting up firebase
 var config = {
     apiKey: "AIzaSyDFuBAb7gmrOzAzhkkpAxphBszEr5O0l_k",
@@ -18,15 +19,22 @@ var f_name,l_name,Id,date,time,a_type,doctor;
 var email
 var userFName;
 
-function getQueryVariable(variable)
-{
-       var query = window.location.search.substring(1);
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return pair[1];}
-       }
-       return(false);
+function getQueryVariable(variable){
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+                if(pair[0] == variable){return pair[1];}
+    }
+    return(false);
+  }
+  
+  
+function setNav(){
+     document.getElementById("home_nav").setAttribute("href", "../http/receptionistHome.html?Staff_ID="+getQueryVariable("Staff_ID"));
+     document.getElementById("book_nav").setAttribute("href", "../http/receptionistBookAppointment.html?Staff_ID="+getQueryVariable("Staff_ID"));
+     document.getElementById("view_nav").setAttribute("href", "../http/receptionistBooking.html?Staff_ID="+getQueryVariable("Staff_ID"));
+     
 }
 
 

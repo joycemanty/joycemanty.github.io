@@ -109,11 +109,13 @@ function closeActionForm() {
     
 }
 
+/** Cancel an appointment */
 function cancel(){
     deleteItem();
     window.alert("Please Reload the page after 15seconds")
 }
 
+/** Delete an appointment */
 function deleteItem(){
     ref.orderByChild('Time').equalTo(current_details)
             .once('value').then(function(snapshot) {
@@ -125,6 +127,7 @@ function deleteItem(){
     window.location.reload();
 }
 
+/**Save data on appointment edit form */
 function onSaveClicked(){
     fName=document.getElementById("f_name").value; 
     lName=document.getElementById("l_name").value;  
