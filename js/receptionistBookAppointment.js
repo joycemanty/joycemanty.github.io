@@ -34,6 +34,7 @@ function setNav(){
      document.getElementById("home_nav").setAttribute("href", "../http/receptionistHome.html?Staff_ID="+getQueryVariable("Staff_ID"));
      document.getElementById("book_nav").setAttribute("href", "../http/receptionistBookAppointment.html?Staff_ID="+getQueryVariable("Staff_ID"));
      document.getElementById("view_nav").setAttribute("href", "../http/receptionistBooking.html?Staff_ID="+getQueryVariable("Staff_ID"));
+     document.getElementById("patient_nav").setAttribute("href", "../http/receptionistManagePatients.html?Staff_ID="+getQueryVariable("Staff_ID"));
      document.getElementById('datepicker').value = new Date();
      document.getElementById('datepicker').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
 }

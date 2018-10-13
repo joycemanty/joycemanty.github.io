@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/Main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+
+    <!-- JavaScript-->
+    <script src="../js/receptionistManagePatients.js"></script>
+
+    <title>UTS Medical Facility Booking System</title>
+</head>
+<body>
+<div class="staffHeader">
+        <a href="../http/mainMenu.html"><div class="staffLogin_btn">
+                <button type="button" class="btn btn-secondary btn-sm">Logout</button>    
+            </div></a>
+    <div id="image">
+        <img src="../imageResource/UTS_whiteLogo.png" alt="UTS Logo">
+    </div>
+    <div class="bigTitle">
+        <h2>UTS Medical Facility Booking System</h2>
+    </div>
+</div>
+
+<!--Menu Nav Bar-->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a id ="home_nav" class="nav-link" href="../http/receptionistHome.html">Home</a>
+    </li>
+    <li class="nav-item">
+        <a id ="book_nav" class="nav-link" href="../http/bookAppointment.html">Book Appointment For Patient</a>
+    </li>
+    <li class="nav-item">
+        <a id = "view_nav" class="nav-link" href="../http/receptionistBooking.html">Manage Appointments</a>
+    </li>
+    <li class="nav-item">
+        <a id = "patient_nav" class="nav-link active" href="../http/receptionistManagePatients.html">Manage Patients</a>
+    </li>
+</ul>
+
+<!-- Patient Table Div -->
+        <div class="p_appointmentTableContainer">
+                <h3>Patients</h3>
+                <div class="table-responsive">          
+                    <table id = "patient_tb" class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Firstname</th>
+                          <th>Lastname</th>
+                          <th>Contact Number</th>
+                          <th>Email Adress</th>
+                          <th>Address</th>
+                          <th>Current Medidcation</th>
+                          <th>Allergies</th>
+                        </tr>
+                      </thead>
+                      <tbody id="table_body">
+                        
+                      </tbody>
+                    </table>
+                    </div>
+            </div>
+
+
+<!--Pop up Action Button  Form -->
+<div class="form-popup" id="action_grp">
+    <h1>Select Action</h1>
+    <center>
+    <button type="submit" class="btn btn-warning"onclick="openEditForm()">Edit</button>
+    <button type="submit" class="btn btn-danger" onclick="remove()">Delete Patient</button><br>
+    <button type="submit" class="btn btn-link" onclick="closeActionForm()">Close</button>
+    </center>
+</div>
+
+<!--Pop up Edit Form -->
+<div class="editform-popup" id="edit_form" style="overflow:scroll">
+    <h5>Edit Appointment</h5>
+    <h4>Basic Information</h4>
+                First Name<input id="fName" type="text" class="form-control" placeholder="Your First Name" required>
+                Last Name<input id="lName" type="text" class="form-control" placeholder="Your Last Name" required>
+                UTS Student/Staff ID<input id="utsId" type="number" class="form-control" placeholder="Student/Staff ID" required>
+                Email Address<input id="email" type="email" class="form-control" placeholder="Your Email" required>
+                Contact Number<input id="cNumber" type="number" class="form-control" placeholder="Phone Number" required>
+                Address<input id="address" type="text" class="form-control" placeholder="Your Home Address">
+                <h4>Health Details</h4>
+                <label>Any allergies or sensitive to drugs or dressings?</label>
+                <div class ="form-check">
+                <input id="allergies_y" class="checkbox_grp" type="radio" name="allergiesRadios" id="radio1" value="true">
+                <label class="form-check-label" for="radio1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</label>
+                <input class="checkbox_grp" type="radio" name="allergiesRadios" id="radio2" value="false" checked="checked">
+                <label class="form-check-label" for="radio2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No</label>
+                </div>
+                <div class="form-group">
+                        Current medications (including over the counter medications, vitamins and minerals):
+                        <textarea id="medication" class="form-control" id="TextArea" rows="5"></textarea>
+                </div>
+               <label>Have any members of your family had:</label> 
+               <textarea id="history" class="form-control" id="TextArea" rows="5"></textarea>
+            <button type="submit" onClick="onSaveClicked()" class="btn btn-primary">Save</button>
+            <button onClick="closeEditForm()" class="btn btn-primary">Close Form</button>
+</div>
+
+
+<!-- JavaScript-->
+<script src="../js/receptionistManagePatients.js"></script>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
