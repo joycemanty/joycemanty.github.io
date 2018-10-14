@@ -113,10 +113,10 @@ function openActionForm() {
     $('#appointment_tb').find('tr').click( function(){
         var row = $(this).find('td:first').text();
         current_appointment=row;
-        current_details =$(this).find('td').eq(4).text();
+        current_details =$(this).find('td').eq(3).text();
         console.log(current_appointment+", "+current_details);
       });
-      ref.orderByChild('Time').equalTo(current_details)
+      ref.orderByChild('Date').equalTo(current_details)
       .once('value').then(function(snapshot) {
           snapshot.forEach(function(childSnapshot) {    
               key = childSnapshot.key;   
