@@ -32,8 +32,8 @@ ref.orderByChild('UTS_ID').equalTo(getQueryVariable("id")).on("child_added", sna
     id = snap.child("UTS_ID").val();
     fName = snap.child("First_Name").val();
     lName = snap.child("Last_Name").val();
-    date = snap.child("Date").val();;
-    time = snap.child("Time").val();;
+    date = snap.child("Date").val();
+    time = snap.child("Time").val();
     aType = snap.child("Appointment_Type").val();
     doctor = snap.child("Doctor").val();
     var aStatus = snap.child("Appointment_Status").val();
@@ -84,7 +84,7 @@ function setNav(){
 function openEditForm() {
     setValue();
     document.getElementById("edit_form").style.display = "block";
-    ref.orderByChild('Time').equalTo(current_details)
+    ref.orderByChild('Date').equalTo(current_details)
             .once('value').then(function(snapshot) {
                 snapshot.forEach(function(childSnapshot) {
                     document.getElementById("f_name").value = childSnapshot.child("First_Name").val();  
@@ -147,8 +147,6 @@ function deleteItem(){
 
 /**Save data on appointment edit form */
 function onSaveClicked(){
-    fName=document.getElementById("f_name").value; 
-    lName=document.getElementById("l_name").value;  
     date=document.getElementById("datepicker").value;
     time=document.getElementById("timepicker").value;
     aType=document.getElementById("a_type").value; 
@@ -157,8 +155,6 @@ function onSaveClicked(){
 
     var edited_appointment = ref.child(key)
     if(validation()){
-    edited_appointment.child("First_Name").set(fName);
-    edited_appointment.child("Last_Name").set(lName);
     edited_appointment.child("Date").set(date);
     edited_appointment.child("Time").set(time);
     edited_appointment.child("Appointment_Type").set(aType);
@@ -173,7 +169,7 @@ function onSaveClicked(){
 }
 
 function validation(){
-    if(f_name != ""&&l_name !=""&&Id !=""&&date !=""&& time!=""){
+    if(date !=""&& time!=""){
         return true;
     }
     else{
